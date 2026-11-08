@@ -30,7 +30,7 @@
                     <span class="hcd-row-title">{{ .Name }}</span>
                     {{ if .Description }}<span class="hcd-row-excerpt">{{ .Description }}</span>{{ end }}
                 </span>
-                <span class="hcd-row-count">{{ len .Articles }} {{ $.L.Tc "globals.terms.article" (len .Articles) }}</span>
+                <span class="hcd-row-count">{{ $.L.Tcn "globals.messages.articleCount" (len .Articles) }}</span>
                 {{ template "hc-arrow-icon" }}
             </a>
         </li>

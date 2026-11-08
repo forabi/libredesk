@@ -46,7 +46,7 @@
         </div>
 
         <span v-if="item.article_count" class="flex-shrink-0 text-xs text-muted-foreground">
-          {{ item.article_count }} {{ $t('globals.terms.article', item.article_count) }}
+          {{ $t('globals.messages.articleCount', item.article_count) }}
         </span>
 
         <span class="hover-actions flex-shrink-0">

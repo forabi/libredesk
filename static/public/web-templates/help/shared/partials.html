@@ -76,10 +76,10 @@
         {{ if and $cards.ShowAuthors .Collection.Authors }}
         <span class="hc-card-meta">
             {{ template "hc-avatar-stack" .Collection.Authors }}
-            <span>{{ .Collection.AuthorCount }} {{ $.L.Tc "helpCenter.authors" .Collection.AuthorCount }}{{ if not $cards.HideCount }} &middot; {{ .Collection.ArticleCount }} {{ $.L.Tc "helpCenter.article" .Collection.ArticleCount }}{{ end }}</span>
+            <span>{{ $.L.Tcn "helpCenter.authorCount" .Collection.AuthorCount }}{{ if not $cards.HideCount }} &middot; {{ $.L.Tcn "globals.messages.articleCount" .Collection.ArticleCount }}{{ end }}</span>
         </span>
         {{ else if not $cards.HideCount }}
-        <span class="hc-count">{{ .Collection.ArticleCount }} {{ $.L.Tc "helpCenter.article" .Collection.ArticleCount }}</span>
+        <span class="hc-count">{{ $.L.Tcn "globals.messages.articleCount" .Collection.ArticleCount }}</span>
         {{ end }}
     </div>
 </a>

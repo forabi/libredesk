@@ -29,7 +29,7 @@
             <h1>{{ $heroText }}</h1>
             {{ if .Data.HelpCenter.TaglineHTML }}<p class="hc-hero-tagline">{{ .Data.HelpCenter.TaglineHTML }}</p>{{ end }}
             {{ end }}
-            <form class="hc-search" action="{{ .Data.HelpCenter.BasePath }}/search" method="GET" role="search" data-hc-base="{{ .Data.HelpCenter.BasePath }}" data-hc-slug="{{ .Data.HelpCenter.Slug }}" data-hc-locale="{{ .Data.HelpCenter.CurrentLocale }}" data-hc-empty="{{ $.L.T "helpCenter.noResults" }}" data-hc-results-one="{{ $.L.Tc "helpCenter.resultsCount" 1 }}" data-hc-results="{{ $.L.Tc "helpCenter.resultsCount" 2 }}">
+            <form class="hc-search" action="{{ .Data.HelpCenter.BasePath }}/search" method="GET" role="search" data-hc-base="{{ .Data.HelpCenter.BasePath }}" data-hc-slug="{{ .Data.HelpCenter.Slug }}" data-hc-locale="{{ .Data.HelpCenter.CurrentLocale }}" data-hc-empty="{{ $.L.T "helpCenter.noResults" }}" data-hc-results-one="{{ $.L.Tc "helpCenter.resultsCount" 1 }}" data-hc-results="{{ $.L.Tc "helpCenter.resultsCount" 2 }}" data-hc-results-forms="{{ $.L.Forms "helpCenter.resultsCount" }}">
                 {{ template "hc-search-icon" "hc-search-icon" }}
                 <input type="search" name="q" value="{{ .Data.Query }}" placeholder="{{ $.L.T "helpCenter.searchPlaceholder" }}" aria-label="{{ $.L.T "helpCenter.searchPlaceholder" }}" autocomplete="off" />
                 <button type="submit">{{ $.L.T "globals.terms.search" }}</button>

@@ -34,6 +34,7 @@ import { useReplyPreviews } from '@widget/composables/useReplyPreviews.js'
 import { resolveLanguage } from '@widget/utils/language.js'
 import { applyDocumentLocale, localeDir } from '@shared-ui/utils/direction.js'
 import { setAppLocale, toIntlLocale } from '@shared-ui/utils/datetime.js'
+import { addPluralRule } from '@shared-ui/utils/plural.js'
 import { ConfigProvider as RekaConfigProvider } from 'reka-ui'
 import { ConfigProvider as RadixConfigProvider } from 'radix-vue'
 
@@ -42,7 +43,7 @@ const chatStore = useChatStore()
 const userStore = useUserStore()
 const help = useHelpStore()
 const proactive = useProactiveStore()
-const { locale, setLocaleMessage } = useI18n()
+const { locale, setLocaleMessage, pluralRules } = useI18n()
 useReplyPreviews()
 
 // Register stores for the global 401 response interceptor.
@@ -128,6 +129,7 @@ const setLanguage = async (requested) => {
       const messages = await api.getLanguage(language.locale)
       if (request !== languageRequest) return
       setLocaleMessage(language.locale, messages.data)
+      addPluralRule(pluralRules, language.locale)
       locale.value = language.locale
     }
     help.requestedLocale = language.requestedLocale

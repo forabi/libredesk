@@ -8,7 +8,22 @@
     var emptyText = form.getAttribute('data-hc-empty') || 'No results';
     var resultsText = form.getAttribute('data-hc-results') || '{count} results';
     var resultsTextOne = form.getAttribute('data-hc-results-one') || '{count} result';
+    var resultsForms = (form.getAttribute('data-hc-results-forms') || '').split('|');
     if (!input || !slug) return;
+
+    // Same rule as the server's langPack.Tc: one form per CLDR plural category
+    // (more than three of them, e.g. Arabic) picks by CLDR, else one/many.
+    function resultsLabel(n) {
+        try {
+            var rules = new Intl.PluralRules(locale);
+            var supported = rules.resolvedOptions().pluralCategories;
+            var cats = ['zero', 'one', 'two', 'few', 'many', 'other'].filter(function (c) { return supported.indexOf(c) !== -1; });
+            if (cats.length > 3 && resultsForms.length === cats.length) {
+                return resultsForms[cats.indexOf(rules.select(n))].trim().replace('{count}', n);
+            }
+        } catch (e) {}
+        return (n > 1 ? resultsText : resultsTextOne).replace('{count}', n);
+    }
 
     var DEBOUNCE = 250;
     var MIN_CHARS = 2;
@@ -80,7 +95,7 @@
         panel.hidden = false;
         active = -1;
         input.setAttribute('aria-expanded', 'true');
-        status.textContent = list.length ? (list.length > 1 ? resultsText : resultsTextOne).replace('{count}', list.length) : emptyText;
+        status.textContent = list.length ? resultsLabel(list.length) : emptyText;
         pending = q;
     }
 
