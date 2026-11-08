@@ -33,7 +33,7 @@
           <slot name="item" :item="item">{{ item.label }}</slot>
           <CheckIcon
             v-if="String(value) === item.value"
-            class="ml-auto h-4 w-4 shrink-0"
+            class="ms-auto h-4 w-4 shrink-0"
             aria-hidden="true"
           />
         </template>
