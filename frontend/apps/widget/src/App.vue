@@ -7,7 +7,7 @@
     @touchstart.once="initAudioContext"
   >
     <div class="widget-container">
-      <RekaConfigProvider :dir="dir">
+      <RekaConfigProvider :dir="dir" :locale="toIntlLocale(locale)">
         <RadixConfigProvider :dir="dir">
           <MainLayout />
         </RadixConfigProvider>
@@ -33,6 +33,7 @@ import { useProactiveStore } from '@widget/store/proactive.js'
 import { useReplyPreviews } from '@widget/composables/useReplyPreviews.js'
 import { resolveLanguage } from '@widget/utils/language.js'
 import { applyDocumentLocale, localeDir } from '@shared-ui/utils/direction.js'
+import { setAppLocale, toIntlLocale } from '@shared-ui/utils/datetime.js'
 import { ConfigProvider as RekaConfigProvider } from 'reka-ui'
 import { ConfigProvider as RadixConfigProvider } from 'radix-vue'
 
@@ -69,7 +70,10 @@ const customColorStyle = computed(() => {
 })
 
 // Dropdowns and dialogs portal to document.body, outside the app wrapper.
-watch(locale, (l) => applyDocumentLocale(l))
+watch(locale, (l) => {
+  applyDocumentLocale(l)
+  setAppLocale(l)
+})
 const dir = computed(() => localeDir(locale.value))
 watch(
   () => widgetStore.isDark,

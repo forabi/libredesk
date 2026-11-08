@@ -9,6 +9,7 @@ import '@shared-ui/assets/styles/main.scss'
 import '@shared-ui/utils/string.js'
 import Root from './Root.vue'
 import { applyDocumentLocale } from '@shared-ui/utils/direction.js'
+import { setAppLocale } from '@shared-ui/utils/datetime.js'
 
 const setFavicon = (url) => {
   let link = document.createElement("link")
@@ -23,6 +24,7 @@ async function initApp () {
   const lang = config['app.lang'] || 'en-US'
   const langMessages = await api.getLanguage(lang)
   applyDocumentLocale(lang)
+  setAppLocale(lang)
 
   // Set favicon.
   if (config['app.favicon_url'])
