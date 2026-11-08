@@ -72,7 +72,7 @@
                 <template #item="{ element: field, index }">
                   <div :key="field.key || `field-${index}`" class="group/reorder border rounded-lg p-4 space-y-4">
                     <div class="flex items-center justify-between">
-                      <div class="flex items-center space-x-3">
+                      <div class="flex items-center space-x-3 rtl:space-x-reverse">
                         <div class="drag-handle cursor-move text-muted-foreground">
                           <GripVertical class="w-4 h-4" aria-hidden="true" />
                         </div>
@@ -92,7 +92,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="flex items-center space-x-2">
+                      <div class="flex items-center space-x-2 rtl:space-x-reverse">
                         <Switch v-model:checked="field.enabled" />
                         <Button
                           v-if="!field.is_default"
@@ -130,7 +130,7 @@
                         </div>
                       </div>
 
-                      <div v-if="field.type !== 'checkbox'" class="flex items-center space-x-2">
+                      <div v-if="field.type !== 'checkbox'" class="flex items-center space-x-2 rtl:space-x-reverse">
                         <Checkbox v-model:checked="field.required" />
                         <Label class="font-normal">{{ $t('globals.terms.required') }}</Label>
                       </div>
@@ -152,7 +152,7 @@
                 <div
                   v-for="attr in availableCustomAttributes"
                   :key="attr.id"
-                  class="flex items-center space-x-2 p-2 border rounded-md cursor-pointer hover:bg-accent"
+                  class="flex items-center space-x-2 rtl:space-x-reverse p-2 border rounded-md cursor-pointer hover:bg-accent"
                   @click="addCustomAttributeToForm(attr)"
                 >
                   <div class="flex-1">

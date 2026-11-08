@@ -3,7 +3,7 @@
     <DataTableActionTrigger />
     <DropdownMenuContent>
       <DropdownMenuItem @click="editTemplate(props.template.id)">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ $t('globals.messages.edit') }}
       </DropdownMenuItem>
       <template v-if="props.template.type !== 'email_notification'">
@@ -12,7 +12,7 @@
           @click="() => (alertOpen = true)"
           class="text-destructive focus:text-destructive"
         >
-          <Trash class="mr-2 h-4 w-4" />
+          <Trash class="me-2 h-4 w-4" />
           {{ $t('globals.messages.delete') }}
         </DropdownMenuItem>
       </template>

@@ -110,7 +110,7 @@
           />
 
           <div class="flex justify-center">
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2 rtl:space-x-reverse">
               <Button
                 type="button"
                 :variant="groupOperator === 'AND' ? 'default' : 'outline'"

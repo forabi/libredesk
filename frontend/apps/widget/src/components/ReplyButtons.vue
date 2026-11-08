@@ -6,7 +6,7 @@
       type="button"
       variant="outline"
       size="sm"
-      class="h-auto max-w-full rounded-full py-1.5 text-left whitespace-normal shadow-sm"
+      class="h-auto max-w-full rounded-full py-1.5 text-start whitespace-normal shadow-sm"
       :disabled="disabled"
       @click="emit('select', reply)"
     >

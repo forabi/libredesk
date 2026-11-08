@@ -14,7 +14,7 @@
 
       <p
         v-if="csatResponse.feedback"
-        class="text-sm text-muted-foreground italic pl-3 border-l-2 border-muted"
+        class="text-sm text-muted-foreground italic ps-3 border-s-2 border-muted"
       >
         {{ csatResponse.feedback }}
       </p>

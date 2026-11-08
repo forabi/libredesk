@@ -85,7 +85,7 @@
                         :href="source.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="h-auto px-0 whitespace-normal text-left"
+                        class="h-auto px-0 whitespace-normal text-start"
                       >
                         {{ source.title }}
                       </Button>
@@ -104,7 +104,7 @@
                     >
                       <span class="text-foreground">
                         {{ source.title }}
-                        <span class="ml-2 text-xs text-muted-foreground">
+                        <span class="ms-2 text-xs text-muted-foreground">
                           {{
                             source.type === 'help_article'
                               ? t('globals.terms.article')

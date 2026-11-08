@@ -6,7 +6,7 @@
         :key="action.type"
         class="flex items-center border bg-background rounded-md transition-colors duration-150 hover:bg-accent/50 group gap-2"
       >
-        <div class="flex items-center space-x-2 px-2">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse px-2">
           <component
             :is="getIcon(action.type)"
             size="16"

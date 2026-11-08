@@ -6,7 +6,7 @@
         :modelValue="ruleGroup.logical_op"
         @update:modelValue="handleGroupOperator"
       >
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
           <RadioGroupItem value="OR" />
           <Label>
             <i18n-t keypath="admin.automation.matchBelow">
@@ -16,7 +16,7 @@
             </i18n-t>
           </Label>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
           <RadioGroupItem value="AND" />
           <Label>
             <i18n-t keypath="admin.automation.matchBelow">
@@ -180,7 +180,7 @@
             <CloseButton :onClose="() => removeCondition(index)" />
           </div>
 
-          <div v-if="showCaseSensitive(index)" class="flex items-center space-x-2">
+          <div v-if="showCaseSensitive(index)" class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox
               id="terms"
               :checked="!!rule.case_sensitive_match"

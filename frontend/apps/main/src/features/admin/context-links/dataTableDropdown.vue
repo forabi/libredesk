@@ -4,12 +4,12 @@
     <DropdownMenuContent>
       <DropdownMenuItem :as-child="true">
         <RouterLink :to="{ name: 'edit-context-link', params: { id: props.contextLink.id } }">
-          <Pencil class="mr-2 h-4 w-4" />
+          <Pencil class="me-2 h-4 w-4" />
           {{ $t('globals.messages.edit') }}
         </RouterLink>
       </DropdownMenuItem>
       <DropdownMenuItem @click="handleToggle">
-        <component :is="props.contextLink.is_active ? PowerOff : Power" class="mr-2 h-4 w-4" />
+        <component :is="props.contextLink.is_active ? PowerOff : Power" class="me-2 h-4 w-4" />
         {{
           props.contextLink.is_active
             ? $t('globals.messages.disable')
@@ -21,7 +21,7 @@
         @click="() => (alertOpen = true)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ $t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

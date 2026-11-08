@@ -88,7 +88,7 @@ provide(FieldContextKey, fieldContext)
                 class="mt-4 flex items-center"
                 @click="push(null)"
               >
-                <PlusIcon class="mr-2" :size="16" />
+                <PlusIcon class="me-2" :size="16" />
                 Add
               </Button>
             </AccordionContent>

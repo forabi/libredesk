@@ -36,7 +36,7 @@ function onLegendItemClick(d, i) {
       type="button"
       variant="ghost"
       size="xs"
-      class="h-auto min-h-7 whitespace-normal text-left"
+      class="h-auto min-h-7 whitespace-normal text-start"
       :class="{ 'text-muted-foreground': item.inactive }"
       :aria-pressed="!item.inactive"
       @click="onLegendItemClick(item, index)"

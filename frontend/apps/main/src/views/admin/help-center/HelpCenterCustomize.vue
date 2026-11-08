@@ -29,7 +29,7 @@
                 <SelectItem value="article">{{ t('helpCenter.styling.articlePage') }}</SelectItem>
               </SelectContent>
             </Select>
-            <PreviewThemeToggle v-model="previewTheme" class="ml-auto" />
+            <PreviewThemeToggle v-model="previewTheme" class="ms-auto" />
             <Select v-model="previewDevice">
               <SelectTrigger class="w-32">
                 <SelectValue />
@@ -76,7 +76,7 @@
             <div ref="previewBox" class="h-[calc(100dvh-13rem)] overflow-hidden bg-muted">
               <iframe
                 ref="previewFrame"
-                class="border-0 bg-background block origin-top-left"
+                class="border-0 bg-background block origin-top-left rtl:origin-top-right"
                 :style="frameStyle"
                 :title="t('globals.terms.helpCenter')"
                 sandbox="allow-same-origin"

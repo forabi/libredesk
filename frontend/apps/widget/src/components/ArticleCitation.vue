@@ -83,7 +83,7 @@ onBeforeUnmount(cancelClose)
         target="_blank"
         rel="noopener noreferrer"
         :aria-label="title"
-        class="h-auto justify-start whitespace-normal break-words p-0 text-left text-xs text-popover-foreground no-underline hover:text-popover-foreground hover:underline"
+        class="h-auto justify-start whitespace-normal break-words p-0 text-start text-xs text-popover-foreground no-underline hover:text-popover-foreground hover:underline"
       >
         {{ title }}
       </Button>

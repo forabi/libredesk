@@ -21,7 +21,7 @@ export const createSnippetColumns = (t, { onEdit } = {}) => [
       const children = [title]
       if (row.original.source === 'conversation') {
         children.push(
-          h(Badge, { variant: 'secondary', class: 'ml-2 align-middle' }, () =>
+          h(Badge, { variant: 'secondary', class: 'ms-2 align-middle' }, () =>
             t('admin.ai.snippet.autoCreated')
           )
         )
@@ -30,7 +30,7 @@ export const createSnippetColumns = (t, { onEdit } = {}) => [
         children.push(
           h(
             Badge,
-            { variant: 'secondary', class: 'ml-2 align-middle', title: row.original.source_url },
+            { variant: 'secondary', class: 'ms-2 align-middle', title: row.original.source_url },
             () => t('admin.ai.snippet.imported')
           )
         )

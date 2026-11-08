@@ -6,7 +6,7 @@
         :key="attachment.uuid || attachment.tempId"
         class="flex items-center bg-background border rounded-md transition-colors duration-150 hover:bg-accent/50 group px-2 gap-2"
       >
-        <div class="flex items-center space-x-1 py-1">
+        <div class="flex items-center space-x-1 rtl:space-x-reverse py-1">
           <DotLoader v-if="attachment.loading"/>
           <PaperclipIcon v-else size="16" />
 
@@ -16,7 +16,7 @@
                 class="max-w-[12rem] overflow-hidden text-ellipsis whitespace-nowrap text-sm font-medium text-foreground"
               >
                 {{ getAttachmentName(attachment.filename) }}
-                <span class="text-xs text-muted-foreground ml-1">
+                <span class="text-xs text-muted-foreground ms-1">
                   {{ formatBytes(attachment.size) }}
                 </span>
               </div>

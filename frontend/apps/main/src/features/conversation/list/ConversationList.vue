@@ -16,7 +16,7 @@
         <DropdownMenuTrigger asChild>
           <Button type="button" variant="ghost" size="sm" :class="FILTER_TRIGGER_CLASS">
             <div class="min-w-0 truncate">
-              <span class="mr-1 tabular-nums">{{ conversationStore.conversations.total }}</span>
+              <span class="me-1 inline-block tabular-nums">{{ conversationStore.conversations.total }}</span>
               <span>{{ conversationStore.getListStatus }}</span>
             </div>
             <ChevronDown class="size-3.5 shrink-0 opacity-50" aria-hidden="true" />

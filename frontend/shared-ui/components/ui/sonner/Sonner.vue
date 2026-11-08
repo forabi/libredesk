@@ -29,6 +29,13 @@ import { Toaster as Sonner } from 'vue-sonner'
   --gray12: hsl(var(--popover-foreground));
 }
 
+/* The close button sits on the trailing corner; mirror it for RTL. */
+[data-sonner-toaster][dir='rtl'] [data-sonner-toast] [data-close-button] {
+  --toast-close-button-start: 0;
+  --toast-close-button-end: auto;
+  --toast-close-button-transform: translate(-35%, -35%);
+}
+
 [data-sonner-toast][data-type='success'] [data-icon] {
   color: hsl(var(--success));
 }

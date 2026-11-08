@@ -11,8 +11,8 @@
         >
           <span class="flex items-center">
             <span class="text-medium">AI</span>
-            <Bot size="14" class="ml-1" />
-            <ChevronDown class="w-4 h-4 ml-2" />
+            <Bot size="14" class="ms-1" />
+            <ChevronDown class="w-4 h-4 ms-2" />
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -31,8 +31,8 @@
         <Button type="button" size="sm" variant="ghost" class="flex items-center justify-center">
           <span class="flex items-center">
             <Type size="14" />
-            <span class="ml-1 text-xs font-medium">{{ getCurrentHeadingText() }}</span>
-            <ChevronDown class="w-3 h-3 ml-1" />
+            <span class="ms-1 text-xs font-medium">{{ getCurrentHeadingText() }}</span>
+            <ChevronDown class="w-3 h-3 ms-1" />
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -169,8 +169,8 @@
                 :aria-label="$t('editor.tooltip.codeBlock')"
               >
                 <Code size="14" />
-                <span class="ml-1 text-xs">{{ getCurrentLanguageLabel() }}</span>
-                <ChevronDown class="w-3 h-3 ml-1" />
+                <span class="ms-1 text-xs">{{ getCurrentLanguageLabel() }}</span>
+                <ChevronDown class="w-3 h-3 ms-1" />
               </Button>
             </DropdownMenuTrigger>
           </TooltipTrigger>
@@ -245,7 +245,7 @@
             <DropdownMenuTrigger as-child>
               <Button type="button" size="sm" variant="ghost" class="bg-secondary flex items-center" :aria-label="$t('editor.tooltip.table')">
                 <TableIcon size="14" />
-                <ChevronDown class="w-3 h-3 ml-1" />
+                <ChevronDown class="w-3 h-3 ms-1" />
               </Button>
             </DropdownMenuTrigger>
           </TooltipTrigger>
@@ -307,7 +307,7 @@
                 :class="{ 'bg-secondary': editor?.isActive('callout') }"
               >
                 <Info size="14" />
-                <ChevronDown class="w-3 h-3 ml-1" />
+                <ChevronDown class="w-3 h-3 ms-1" />
               </Button>
             </DropdownMenuTrigger>
           </TooltipTrigger>

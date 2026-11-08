@@ -6,7 +6,7 @@
     <button
       v-for="(item, index) in items"
       :key="item.id"
-      class="conversation-reference-item w-full text-left px-3 py-2 hover:bg-muted"
+      class="conversation-reference-item w-full text-start px-3 py-2 hover:bg-muted"
       :class="{ 'bg-muted': index === selectedIndex }"
       @click="selectItem(index)"
     >

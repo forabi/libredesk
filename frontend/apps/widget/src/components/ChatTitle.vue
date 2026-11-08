@@ -22,7 +22,7 @@
           "
         >
           <span
-            class="inline-block w-2 h-2 rounded-full mr-1"
+            class="inline-block w-2 h-2 rounded-full me-1"
             :class="{
               'bg-success': chatTitle.availability_status === 'online',
               'bg-warning': chatTitle.availability_status === 'away'

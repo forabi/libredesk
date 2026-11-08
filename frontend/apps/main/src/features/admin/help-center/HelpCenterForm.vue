@@ -211,15 +211,15 @@
                 <FormLabel>{{ t('globals.terms.theme') }}</FormLabel>
                 <FormControl>
                   <RadioGroup v-bind="componentField" class="flex gap-4">
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
                       <RadioGroupItem id="hc-scheme-system" value="system" />
                       <Label for="hc-scheme-system">{{ t('globals.terms.matchSystem') }}</Label>
                     </div>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
                       <RadioGroupItem id="hc-scheme-light" value="light" />
                       <Label for="hc-scheme-light">{{ t('globals.terms.light') }}</Label>
                     </div>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
                       <RadioGroupItem id="hc-scheme-dark" value="dark" />
                       <Label for="hc-scheme-dark">{{ t('globals.terms.dark') }}</Label>
                     </div>
@@ -750,7 +750,7 @@
       </div>
     </Tabs>
 
-    <div class="flex justify-end space-x-2 pt-4">
+    <div class="flex justify-end space-x-2 rtl:space-x-reverse pt-4">
       <Button type="button" variant="outline" @click="$emit('cancel')">
         {{ t('globals.messages.cancel') }}
       </Button>

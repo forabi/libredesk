@@ -15,7 +15,7 @@
         >
           {{ modelValue.length ? selectedLabel || placeholder : placeholder }}
         </span>
-        <span class="ml-auto flex shrink-0 items-center gap-1.5">
+        <span class="ms-auto flex shrink-0 items-center gap-1.5">
           <span
             v-if="modelValue.length"
             class="rounded bg-secondary px-1.5 py-0.5 text-xs tabular-nums text-secondary-foreground"
@@ -47,7 +47,7 @@
                 <span class="truncate">{{ item.label }}</span>
               </slot>
               <CheckIcon
-                class="ml-auto h-4 w-4 shrink-0"
+                class="ms-auto h-4 w-4 shrink-0"
                 :class="isSelected(item.value) ? 'opacity-100' : 'opacity-0'"
                 aria-hidden="true"
               />

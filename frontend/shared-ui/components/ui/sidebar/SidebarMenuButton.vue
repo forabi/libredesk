@@ -7,6 +7,7 @@ import {
 } from '../tooltip';
 import SidebarMenuButtonChild from './SidebarMenuButtonChild.vue';
 import { useSidebar } from './utils';
+import { useEndSide } from '../../../composables/useEndSide.js';
 
 defineOptions({
   inheritAttrs: false,
@@ -23,6 +24,7 @@ const props = defineProps({
 });
 
 const { isMobile, state } = useSidebar();
+const endSide = useEndSide();
 
 const delegatedProps = computed(() => {
   const { tooltip, ...delegated } = props;
@@ -45,7 +47,7 @@ const delegatedProps = computed(() => {
       </SidebarMenuButtonChild>
     </TooltipTrigger>
     <TooltipContent
-      side="right"
+      :side="endSide"
       align="center"
       :hidden="state !== 'collapsed' || isMobile"
     >

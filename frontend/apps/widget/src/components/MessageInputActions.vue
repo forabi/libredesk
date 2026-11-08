@@ -53,7 +53,7 @@
           ref="emojiPickerRef"
           :native="true"
           @select="onSelectEmoji"
-          class="origin-bottom-left absolute bottom-12 left-0 z-50"
+          class="origin-bottom-left rtl:origin-bottom-right absolute bottom-12 start-0 z-50"
         />
       </Transition>
     </div>

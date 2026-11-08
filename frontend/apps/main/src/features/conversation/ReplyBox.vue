@@ -132,7 +132,7 @@
         </span>
         <span
           v-if="attachmentCount"
-          class="ml-auto flex shrink-0 items-center gap-1 text-xs text-muted-foreground"
+          class="ms-auto flex shrink-0 items-center gap-1 text-xs text-muted-foreground"
         >
           <Paperclip class="w-3.5 h-3.5" />
           {{ attachmentCount }}

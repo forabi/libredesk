@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col text-left" :class="isOutgoing ? 'items-end' : 'items-start'">
+  <div class="flex flex-col text-start" :class="isOutgoing ? 'items-end' : 'items-start'">
     <!-- Sender Name -->
     <div
       v-if="!groupWithPrev"
       class="mb-1 flex items-center gap-1.5"
-      :class="isOutgoing ? 'lg:pr-10' : 'lg:pl-10'"
+      :class="isOutgoing ? 'lg:pe-10' : 'lg:ps-10'"
     >
       <Avatar class="w-7 h-7 text-xs lg:hidden" :class="{ 'order-last': isOutgoing }">
         <AvatarImage :src="getAvatar" />
@@ -73,7 +73,7 @@
                 class="text-destructive focus:text-destructive"
                 @click="alertOpen = true"
               >
-                <Trash2 class="mr-2 h-4 w-4" />
+                <Trash2 class="me-2 h-4 w-4" />
                 {{ t('conversation.deletePrivateNote') }}
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -133,7 +133,7 @@
 
               <div
                 v-if="isExpandable && !isExpanded"
-                class="absolute left-0 right-0 bottom-0 h-24 flex items-end justify-center pointer-events-none"
+                class="absolute start-0 end-0 bottom-0 h-24 flex items-end justify-center pointer-events-none"
                 :class="
                   message.private
                     ? 'bg-gradient-to-t from-private via-private/90 to-transparent'
@@ -178,7 +178,7 @@
             <Spinner v-if="pendingSpinner" size="sm" />
 
             <!-- Status Icons (outgoing only) -->
-            <div v-if="isOutgoing" class="flex items-center space-x-2 mt-2 self-end">
+            <div v-if="isOutgoing" class="flex items-center space-x-2 rtl:space-x-reverse mt-2 self-end">
               <Lock :size="12" v-if="isPrivateMessage" class="text-muted-foreground" />
               <Tooltip v-if="deliveryStatus">
                 <TooltipTrigger :aria-label="deliveryStatusLabel">
@@ -233,7 +233,7 @@
     </div>
 
     <!-- Timestamp tooltip -->
-    <div v-if="!groupWithNext" :class="isOutgoing ? 'lg:pr-10' : 'lg:pl-10'">
+    <div v-if="!groupWithNext" :class="isOutgoing ? 'lg:pe-10' : 'lg:ps-10'">
       <Tooltip>
         <TooltipTrigger>
           <span class="text-muted-foreground text-xs mt-1">

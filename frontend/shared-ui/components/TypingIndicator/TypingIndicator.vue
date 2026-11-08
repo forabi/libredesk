@@ -3,7 +3,7 @@
     class="inline-flex w-fit items-center px-3 py-2 text-sm text-muted-foreground"
     :class="bubble ? 'min-h-9 rounded-2xl bg-muted' : ''"
   >
-    <div class="flex space-x-1">
+    <div class="flex space-x-1 rtl:space-x-reverse">
       <div
         v-for="delay in [0, 150, 300]"
         :key="delay"

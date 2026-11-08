@@ -18,7 +18,7 @@
         :key="conversation.uuid"
         type="button"
         variant="ghost"
-        class="h-auto w-full justify-start whitespace-normal rounded-none p-4 border-b border-border text-left font-normal"
+        class="h-auto w-full justify-start whitespace-normal rounded-none p-4 border-b border-border text-start font-normal"
         @click="openConversation(conversation.uuid)"
       >
         <div class="flex w-full min-w-0 items-center gap-3">
@@ -31,7 +31,7 @@
               <span class="min-w-0 truncate text-sm font-medium text-foreground">{{
                 getSenderLabel(conversation.last_message.author)
               }}</span>
-              <span class="text-xs text-muted-foreground flex-shrink-0 ml-2">{{
+              <span class="text-xs text-muted-foreground flex-shrink-0 ms-2">{{
                 getRelativeTime(new Date(conversation.last_message.created_at))
               }}</span>
             </div>

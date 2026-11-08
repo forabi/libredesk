@@ -13,7 +13,7 @@
           </router-link>
         </SidebarMenuButton>
       </TooltipTrigger>
-      <TooltipContent v-if="variant === 'rail'" side="right">
+      <TooltipContent v-if="variant === 'rail'" :side="endSide">
         <p>{{ item.label }}</p>
       </TooltipContent>
     </Tooltip>
@@ -28,7 +28,7 @@ import { useStorage } from '@vueuse/core'
 import { Inbox, Shield, FileLineChart, BookUser } from 'lucide-vue-next'
 import { SidebarMenuButton, SidebarMenuItem } from '@shared-ui/components/ui/sidebar'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@shared-ui/components/ui/tooltip'
-import { useIsMobile } from '@shared-ui/composables'
+import { useIsMobile, useEndSide } from '@shared-ui/composables'
 import { useUserStore } from '@main/stores/user'
 
 defineProps({
@@ -40,6 +40,7 @@ const route = useRoute()
 const { t } = useI18n()
 const userStore = useUserStore()
 const isMobile = useIsMobile()
+const endSide = useEndSide()
 
 const lastInboxPath = useStorage('lastInboxPath', '')
 

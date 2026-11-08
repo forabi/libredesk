@@ -10,7 +10,7 @@
           :aria-expanded="open"
           :class="['w-full justify-between bg-transparent px-3', buttonClass]"
         >
-          <span class="flex min-w-0 flex-1 items-center text-left">
+          <span class="flex min-w-0 flex-1 items-center text-start">
             <slot name="selected" :selected="selectedItem">
               <span class="min-w-0 truncate">{{ selectedLabel }}</span>
             </slot>
@@ -34,7 +34,7 @@
               <slot name="item" :item="item">{{ item.label }}</slot>
               <CheckIcon
                 :class="
-                  cn('ml-auto h-4 w-4', String(value) === item.value ? 'opacity-100' : 'opacity-0')
+                  cn('ms-auto h-4 w-4', String(value) === item.value ? 'opacity-100' : 'opacity-0')
                 "
               />
             </CommandItem>

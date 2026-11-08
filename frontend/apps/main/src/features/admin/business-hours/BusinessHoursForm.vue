@@ -34,11 +34,11 @@
         <FormControl>
           <RadioGroup v-bind="componentField">
             <div class="flex flex-col space-y-2">
-              <div class="flex items-center space-x-3">
+              <div class="flex items-center space-x-3 rtl:space-x-reverse">
                 <RadioGroupItem id="r1" :value="true" />
                 <Label for="r1">{{ t('admin.businessHours.alwaysOpen24x7') }}</Label>
               </div>
-              <div class="flex items-center space-x-3">
+              <div class="flex items-center space-x-3 rtl:space-x-reverse">
                 <RadioGroupItem id="r2" :value="false" />
                 <Label for="r2">{{ t('admin.businessHours.customBusinessHours') }}</Label>
               </div>
@@ -58,7 +58,7 @@
               :key="day"
               class="business-hours-row grid items-center gap-2"
             >
-              <div class="flex items-center space-x-3">
+              <div class="flex items-center space-x-3 rtl:space-x-reverse">
                 <Checkbox
                   :id="day"
                   :checked="!!selectedDays[day]"
@@ -125,7 +125,7 @@
         </DialogHeader>
         <div class="grid gap-4 py-4">
           <div class="grid items-center gap-2 sm:grid-cols-4 sm:gap-4">
-            <Label for="holiday_name" class="sm:text-right"> {{ t('globals.terms.name') }} </Label>
+            <Label for="holiday_name" class="sm:text-end"> {{ t('globals.terms.name') }} </Label>
             <Input
               id="holiday_name"
               ref="holidayNameRef"
@@ -134,7 +134,7 @@
             />
           </div>
           <div class="grid items-center gap-2 sm:grid-cols-4 sm:gap-4">
-            <Label for="date" class="sm:text-right"> {{ t('globals.terms.date') }} </Label>
+            <Label for="date" class="sm:text-end"> {{ t('globals.terms.date') }} </Label>
             <Popover :open="datePickerOpen" @update:open="datePickerOpen = $event">
               <PopoverTrigger as-child>
                 <Button
@@ -143,12 +143,12 @@
                   variant="outline"
                   :class="
                     cn(
-                      'w-full min-w-0 justify-start text-left font-normal sm:col-span-3',
+                      'w-full min-w-0 justify-start text-start font-normal sm:col-span-3',
                       !holidayDate && 'text-muted-foreground'
                     )
                   "
                 >
-                  <CalendarIcon class="mr-2 h-4 w-4" />
+                  <CalendarIcon class="me-2 h-4 w-4" />
                   {{
                     holidayDate && !isNaN(new Date(holidayDate).getTime())
                       ? format(new Date(holidayDate), 'MMMM dd, yyyy')

@@ -12,26 +12,26 @@
           <StatusDot
             :status="userStore.user.availability_status"
             size="sm"
-            class="absolute bottom-0 right-0"
+            class="absolute bottom-0 end-0"
           />
         </div>
-        <div class="grid flex-1 text-left text-sm leading-tight">
+        <div class="grid flex-1 text-start text-sm leading-tight">
           <span class="truncate font-semibold">{{ userStore.getFullName }}</span>
           <span class="truncate text-xs">{{ userStore.email }}</span>
         </div>
-        <ChevronsUpDown class="ml-auto size-4" />
+        <ChevronsUpDown class="ms-auto size-4" />
       </SidebarMenuButton>
     </DropdownMenuTrigger>
     <DropdownMenuContent
       class="min-w-56"
-      :side="isMobile ? 'bottom' : 'right'"
+      :side="isMobile ? 'bottom' : endSide"
       :align="isMobile ? 'start' : 'end'"
       :side-offset="8"
       :align-offset="isMobile ? 0 : 40"
     >
       <DropdownMenuLabel class="font-normal space-y-2 px-2">
         <!-- User header -->
-        <div class="flex items-center gap-2 py-1.5 text-left text-sm">
+        <div class="flex items-center gap-2 py-1.5 text-start text-sm">
           <Avatar class="h-8 w-8">
             <AvatarImage :src="userStore.avatar" alt="U" />
             <AvatarFallback>
@@ -86,20 +86,20 @@
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
         <DropdownMenuItem @click.prevent="router.push({ name: 'account' })">
-          <CircleUserRound size="18" class="mr-2" />
+          <CircleUserRound size="18" class="me-2" />
           {{ t('globals.terms.account') }}
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
         <DropdownMenuItem @click="shortcutsDialog.show">
-          <Keyboard size="18" class="mr-2" />
+          <Keyboard size="18" class="me-2" />
           {{ t('navigation.keyboardShortcuts') }}
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuItem @click="logout">
-        <LogOut size="18" class="mr-2" />
+        <LogOut size="18" class="me-2" />
         {{ t('navigation.logout') }}
       </DropdownMenuItem>
     </DropdownMenuContent>
@@ -123,7 +123,7 @@ import StatusDot from '@shared-ui/components/StatusDot.vue'
 import { Switch } from '@shared-ui/components/ui/switch'
 import { ChevronsUpDown, CircleUserRound, Keyboard, LogOut } from 'lucide-vue-next'
 import { useUserStore } from '@main/stores/user'
-import { useIsMobile } from '@shared-ui/composables'
+import { useIsMobile, useEndSide } from '@shared-ui/composables'
 import { useRouter } from 'vue-router'
 import { useKeyboardShortcutsDialog } from '@main/composables/useKeyboardShortcutsDialog'
 import { useLogout } from '@main/composables/useLogout'
@@ -131,6 +131,7 @@ import { useLogout } from '@main/composables/useLogout'
 import { useColorMode } from '@vueuse/core'
 
 const isMobile = useIsMobile()
+const endSide = useEndSide()
 const mode = useColorMode()
 const userStore = useUserStore()
 const router = useRouter()

@@ -29,7 +29,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     v-bind="forwardedProps"
   >
     <slot>
-      <ChevronRightIcon class="h-4 w-4" />
+      <ChevronRightIcon class="h-4 w-4 rtl:[scale:-1_1]" />
     </slot>
   </RangeCalendarNext>
 </template>

@@ -12,7 +12,7 @@
               v-bind="fieldBinding(componentField, handleChange, meta)"
               :items="allCountries"
               :placeholder="t('globals.terms.select')"
-              button-class="w-auto rounded-r-none border-r-0 bg-transparent"
+              button-class="w-auto rounded-e-none border-e-0 bg-transparent"
             >
               <template #item="{ item }">
                 <div class="flex items-center gap-2">
@@ -52,7 +52,7 @@
                   type="tel"
                   v-bind="fieldBinding(phoneField, handlePhoneChange, phoneMeta)"
                   :placeholder="placeholder"
-                  class="rounded-l-none"
+                  class="rounded-s-none"
                   inputmode="tel"
                 />
               </FormControl>

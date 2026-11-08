@@ -46,7 +46,7 @@
                 :key="permission.name"
                 :name="permission.name"
               >
-                <FormItem class="flex items-start space-x-3 space-y-0">
+                <FormItem class="flex items-start space-x-3 rtl:space-x-reverse space-y-0">
                   <FormControl>
                     <Checkbox
                       :checked="selectedPermissions.includes(permission.name)"

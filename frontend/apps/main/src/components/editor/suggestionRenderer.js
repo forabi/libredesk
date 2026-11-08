@@ -54,7 +54,10 @@ function updatePosition(popup, clientRect) {
 
   requestAnimationFrame(() => {
     const popupRect = popup.getBoundingClientRect()
-    if (popupRect.right > window.innerWidth) {
+    if (document.documentElement.dir === 'rtl') {
+      // In RTL the popup hangs from the caret towards the left.
+      popup.style.left = `${Math.max(8, rect.right - popupRect.width)}px`
+    } else if (popupRect.right > window.innerWidth) {
       popup.style.left = `${window.innerWidth - popupRect.width - 8}px`
     }
     if (popupRect.bottom > window.innerHeight) {

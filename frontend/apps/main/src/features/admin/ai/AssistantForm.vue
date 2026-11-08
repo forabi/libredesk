@@ -213,7 +213,7 @@
       <div class="text-sm font-medium leading-none">{{ t('admin.ai.assistant.tools') }}</div>
       <p class="ui-description">{{ t('admin.ai.assistant.toolsHint') }}</p>
       <div class="space-y-3 mt-3">
-        <div v-for="tool in tools" :key="tool.id" class="flex items-center space-x-2">
+        <div v-for="tool in tools" :key="tool.id" class="flex items-center space-x-2 rtl:space-x-reverse">
           <Checkbox
             :id="`tool-${tool.id}`"
             :checked="selectedToolIds.includes(tool.id)"

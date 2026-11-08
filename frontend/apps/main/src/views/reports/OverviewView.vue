@@ -250,7 +250,7 @@
 
             <!-- Top tags list -->
             <div class="space-y-3">
-              <p class="ui-subheading mb-3 text-left">{{ $t('report.tags.topTags') }}</p>
+              <p class="ui-subheading mb-3 text-start">{{ $t('report.tags.topTags') }}</p>
               <div
                 v-for="tag in (tagDistributionData.top_tags || []).slice(0, 5)"
                 :key="tag.tag_id"

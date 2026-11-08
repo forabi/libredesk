@@ -62,7 +62,7 @@ async function parseFileAsString(file) {
           />
           <div
             v-else
-            class="flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent pl-3 pr-1 py-1 text-sm shadow-sm transition-colors"
+            class="flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent ps-3 pe-1 py-1 text-sm shadow-sm transition-colors"
           >
             <p>{{ inputFile?.name }}</p>
             <Button
