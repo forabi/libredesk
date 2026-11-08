@@ -7,14 +7,15 @@
         class="flex-shrink-0"
         :class="marker.class"
         role="img"
-        :aria-label="priorityLabel"
+        :aria-label="priorityAria"
       />
     </TooltipTrigger>
-    <TooltipContent>{{ priorityName }}</TooltipContent>
+    <TooltipContent>{{ priorityText }}</TooltipContent>
   </Tooltip>
 </template>
 
 <script setup>
+import { priorityLabel } from '@shared-ui/utils/defaultTerms.js'
 import { computed } from 'vue'
 import PriorityIcon from '@shared-ui/components/icons/PriorityIcon.vue'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@shared-ui/components/ui/tooltip'
@@ -48,5 +49,6 @@ const priorityName = computed(() => (props.priority || '').trim())
 
 const marker = computed(() => PRIORITY_MARKERS[priorityName.value.toLowerCase()] || UNKNOWN_MARKER)
 
-const priorityLabel = computed(() => `${t('globals.terms.priority', 1)}: ${priorityName.value}`)
+const priorityText = computed(() => priorityLabel(t, priorityName.value))
+const priorityAria = computed(() => `${t('globals.terms.priority', 1)}: ${priorityText.value}`)
 </script>

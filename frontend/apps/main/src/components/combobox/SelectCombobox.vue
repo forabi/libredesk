@@ -31,7 +31,7 @@
         </div>
 
         <!-- Others -->
-        <PriorityMarker v-else-if="type === 'priority'" :priority="item.label" :tooltip="false" />
+        <PriorityMarker v-else-if="type === 'priority'" :priority="item.name ?? item.label" :tooltip="false" />
         <span v-else-if="item.emoji">{{ item.emoji }}</span>
         <span>{{ item.label }}</span>
         <span v-if="isCurrentUser(item)" class="text-muted-foreground text-xs"
@@ -61,7 +61,7 @@
           <!-- Others -->
           <PriorityMarker
             v-else-if="type === 'priority'"
-            :priority="selected.label"
+            :priority="selected.name ?? selected.label"
             :tooltip="false"
           />
           <span v-else-if="selected.emoji" class="shrink-0">{{ selected.emoji }}</span>

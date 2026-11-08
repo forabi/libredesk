@@ -138,7 +138,7 @@
             :key="status.value"
             @click="handleSendAndSetStatus(status.label)"
           >
-            {{ status.label }}
+            {{ statusLabel($t, status.label) }}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -147,6 +147,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 const ICON_BUTTON_CLASS =
   'border-border/70 bg-background px-2 py-2 text-muted-foreground shadow-none max-md:min-h-11 max-md:min-w-11'
 

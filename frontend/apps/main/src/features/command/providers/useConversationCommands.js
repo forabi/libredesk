@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { statusLabel, priorityLabel } from '@shared-ui/utils/defaultTerms.js'
 import {
   CalendarClock,
   CheckCircle2,
@@ -140,7 +141,7 @@ export function useConversationCommands({ openSnoozeDatePicker }) {
       const isSnooze = status.label === CONVERSATION_DEFAULT_STATUSES.SNOOZED
       commands.push({
         id: `conv.status.${status.value}`,
-        label: status.label,
+        label: statusLabel(t, status.label),
         parent: 'conv.status',
         icon: isSnooze ? CalendarClock : CircleDot,
         navigateTo: isSnooze ? SNOOZE_COMMAND : undefined,
@@ -165,7 +166,7 @@ export function useConversationCommands({ openSnoozeDatePicker }) {
       .filter((priority) => priority.label !== conv.priority)
       .map((priority) => ({
         id: `conv.priority.${priority.value}`,
-        label: priority.label,
+        label: priorityLabel(t, priority.label),
         parent: 'conv.priority',
         icon: Flag,
         run: () => {

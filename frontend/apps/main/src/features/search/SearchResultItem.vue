@@ -46,10 +46,10 @@
       <div
         class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground"
       >
-        <Badge v-if="status" variant="outline" class="font-normal">{{ status }}</Badge>
+        <Badge v-if="status" variant="outline" class="font-normal">{{ statusLabel($t, status) }}</Badge>
         <span v-if="item.priority" class="inline-flex items-center gap-1">
           <PriorityMarker :priority="item.priority" />
-          {{ item.priority }}
+          {{ priorityLabel($t, item.priority) }}
         </span>
         <span class="tabular-nums">#{{ referenceNumber }}</span>
         <span v-if="item.inbox_name" class="inline-flex items-center gap-1.5 min-w-0">
@@ -84,6 +84,7 @@
 </template>
 
 <script setup>
+import { statusLabel, priorityLabel } from '@shared-ui/utils/defaultTerms.js'
 import { computed } from 'vue'
 import { Mail, Tag, UserRound, UsersRound } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'

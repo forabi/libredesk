@@ -95,7 +95,7 @@
           :key="status.value"
           @click="bulkUpdateStatus(status.label)"
         >
-          {{ status.label }}
+          {{ statusLabel($t, status.label) }}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -115,6 +115,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 import { useI18n } from 'vue-i18n'
 import { UserPlus, Users, Tag, CircleDot, Loader2, X } from 'lucide-vue-next'
 import { Button } from '@shared-ui/components/ui/button'

@@ -93,6 +93,7 @@
 </template>
 
 <script setup>
+import { withStatusLabels, withPriorityLabels } from '@shared-ui/utils/defaultTerms.js'
 import { computed, onMounted, watch } from 'vue'
 import { useStorage } from '@vueuse/core'
 import { ChevronDown, SlidersHorizontal, X } from 'lucide-vue-next'
@@ -139,8 +140,8 @@ watch(advancedFilterCount, (count, previousCount) => {
 
 const { t } = useI18n()
 const conversationStore = useConversationStore()
-const statusItems = computed(() => asStringValues(conversationStore.statusOptions))
-const priorityItems = computed(() => asStringValues(conversationStore.priorityOptions))
+const statusItems = computed(() => asStringValues(withStatusLabels(t, conversationStore.statusOptions)))
+const priorityItems = computed(() => asStringValues(withPriorityLabels(t, conversationStore.priorityOptions)))
 const inboxStore = useInboxStore()
 const tagStore = useTagStore()
 

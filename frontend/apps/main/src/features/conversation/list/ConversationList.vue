@@ -17,7 +17,7 @@
           <Button type="button" variant="ghost" size="sm" :class="FILTER_TRIGGER_CLASS">
             <div class="min-w-0 truncate">
               <span class="me-1 inline-block tabular-nums">{{ conversationStore.conversations.total }}</span>
-              <span>{{ conversationStore.getListStatus }}</span>
+              <span>{{ statusLabel($t, conversationStore.getListStatus) }}</span>
             </div>
             <ChevronDown class="size-3.5 shrink-0 opacity-50" aria-hidden="true" />
           </Button>
@@ -28,7 +28,7 @@
             :key="status.value"
             @click="handleStatusChange(status)"
           >
-            {{ status.label }}
+            {{ statusLabel($t, status.label) }}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -151,6 +151,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 const FILTER_TRIGGER_CLASS = 'min-w-0 justify-start gap-1.5 px-2 text-xs'
 
 import { computed, watch } from 'vue'
