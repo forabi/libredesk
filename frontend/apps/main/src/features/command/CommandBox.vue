@@ -72,11 +72,11 @@
               {{ command.hint }}
             </span>
             <span class="ms-auto flex shrink-0 items-center gap-1 ps-3">
-              <template v-if="command.shortcut">
+              <span v-if="command.shortcut" class="flex items-center gap-1" dir="ltr">
                 <kbd v-for="key in command.shortcut" :key="key" :class="KBD_CLASS">
                   {{ KEY_LABELS[key] || key }}
                 </kbd>
-              </template>
+              </span>
               <ChevronRight
                 v-if="command.group || command.navigateTo"
                 class="!h-4 !w-4 text-muted-foreground"
