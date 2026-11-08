@@ -1459,7 +1459,7 @@
   "helpCenter.saveBeforeSwitchingTranslation": "Unsaved changes would be lost. Save the article before switching languages.",
   "helpCenter.searchCount": "Searches",
   "helpCenter.searchPlaceholder": "Search articles...",
-  "helpCenter.searchResults": "Results for",
+  "helpCenter.searchResultsFor": "Results for “{query}”",
   "helpCenter.searchTerm": "Search term",
   "helpCenter.seo": "SEO & metadata",
   "helpCenter.skipToContent": "Skip to main content",
