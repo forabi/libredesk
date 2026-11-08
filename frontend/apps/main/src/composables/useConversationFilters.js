@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { withStatusLabels, withPriorityLabels } from '@shared-ui/utils/defaultTerms.js'
 import { useConversationStore } from '@/stores/conversation'
 import { useInboxStore } from '@/stores/inbox'
 import { useSlaStore } from '@/stores/sla'
@@ -36,13 +37,13 @@ export function useConversationFilters () {
             label: t('globals.terms.status'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.statusOptions
+            options: withStatusLabels(t, cStore.statusOptions)
         },
         priority_id: {
             label: t('globals.terms.priority'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         assigned_team_id: {
             label: t('actions.assignTeam'),
@@ -182,13 +183,13 @@ export function useConversationFilters () {
             label: t('globals.terms.status'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.statusOptions
+            options: withStatusLabels(t, cStore.statusOptions)
         },
         priority: {
             label: t('globals.terms.priority'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         assigned_team: {
             label: t('actions.assignTeam'),
@@ -215,13 +216,13 @@ export function useConversationFilters () {
             label: t('globals.terms.status'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.statusOptions
+            options: withStatusLabels(t, cStore.statusOptions)
         },
         priority: {
             label: t('globals.terms.priority'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         assigned_team: {
             label: t('actions.assignTeam'),
@@ -270,13 +271,13 @@ export function useConversationFilters () {
             label: t('admin.automation.previousStatus'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.statusOptions
+            options: withStatusLabels(t, cStore.statusOptions)
         },
         previous_priority: {
             label: t('admin.automation.previousPriority'),
             type: FIELD_TYPE.SELECT,
             operators: FIELD_OPERATORS.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         previous_assigned_user: {
             label: t('admin.automation.previousAssignedUser'),
@@ -306,12 +307,12 @@ export function useConversationFilters () {
         set_status: {
             label: t('actions.setStatus'),
             type: FIELD_TYPE.SELECT,
-            options: cStore.statusOptionsNoSnooze
+            options: withStatusLabels(t, cStore.statusOptionsNoSnooze)
         },
         set_priority: {
             label: t('actions.setPriority'),
             type: FIELD_TYPE.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         send_private_note: {
             label: t('actions.addPrivateNote'),
@@ -369,12 +370,12 @@ export function useConversationFilters () {
         set_status: {
             label: t('actions.setStatus'),
             type: FIELD_TYPE.SELECT,
-            options: cStore.statusOptionsNoSnooze
+            options: withStatusLabels(t, cStore.statusOptionsNoSnooze)
         },
         set_priority: {
             label: t('actions.setPriority'),
             type: FIELD_TYPE.SELECT,
-            options: cStore.priorityOptions
+            options: withPriorityLabels(t, cStore.priorityOptions)
         },
         add_tags: {
             label: t('actions.addTags'),
