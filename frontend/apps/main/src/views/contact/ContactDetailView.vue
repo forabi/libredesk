@@ -98,7 +98,7 @@
             <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
               <CalendarIcon size="14" class="flex-shrink-0" />
               {{ $t('globals.terms.createdOn') }}
-              {{ contact.created_at ? format(new Date(contact.created_at), 'PPP') : 'N/A' }}
+              {{ contact.created_at ? formatDate(contact.created_at, 'PPP', { dateStyle: 'long' }) : 'N/A' }}
             </div>
           </div>
 
@@ -157,7 +157,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { format } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import { useI18n } from 'vue-i18n'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'

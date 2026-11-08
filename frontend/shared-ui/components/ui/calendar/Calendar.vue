@@ -15,6 +15,7 @@ import {
   CalendarPrevButton
 } from '.'
 import { cn } from '../../../lib/utils'
+import { intlLocale } from '../../../utils/datetime.js'
 
 const props = defineProps({
   modelValue: { type: null, required: false },
@@ -48,7 +49,7 @@ const emits = defineEmits(['update:modelValue', 'update:placeholder'])
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
 
-  return delegated
+  return { ...delegated, locale: props.locale ?? intlLocale() }
 })
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)

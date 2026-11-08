@@ -1,4 +1,5 @@
 import { format, isToday, isTomorrow, addDays, setHours, setMinutes } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import { useI18n } from 'vue-i18n'
 
 /**
@@ -141,13 +142,13 @@ export function useBusinessHours () {
     }
 
     if (isToday(nextWorkingTime)) {
-      return t('globals.messages.backTodayAt', { time: format(nextWorkingTime, 'h:mm a') })
+      return t('globals.messages.backTodayAt', { time: formatDate(nextWorkingTime, 'h:mm a', { hour: 'numeric', minute: '2-digit' }) })
     } else if (isTomorrow(nextWorkingTime)) {
-      return t('globals.messages.backTomorrowAt', { time: format(nextWorkingTime, 'h:mm a') })
+      return t('globals.messages.backTomorrowAt', { time: formatDate(nextWorkingTime, 'h:mm a', { hour: 'numeric', minute: '2-digit' }) })
     } else {
       return t('globals.messages.backOnDayAt', {
-        day: format(nextWorkingTime, 'EEEE'),
-        time: format(nextWorkingTime, 'h:mm a')
+        day: formatDate(nextWorkingTime, 'EEEE', { weekday: 'long' }),
+        time: formatDate(nextWorkingTime, 'h:mm a', { hour: 'numeric', minute: '2-digit' })
       })
     }
   }

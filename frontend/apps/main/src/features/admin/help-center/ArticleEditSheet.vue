@@ -405,7 +405,7 @@
                   class="flex justify-between py-1"
                 >
                   <span class="text-muted-foreground">{{ t('globals.terms.view', 2) }}</span>
-                  <span>{{ loadedArticle.view_count.toLocaleString() }}</span>
+                  <span>{{ formatNumber(loadedArticle.view_count) }}</span>
                 </div>
               </div>
             </div>
@@ -523,7 +523,8 @@ import { useEmitter } from '@/composables/useEmitter.js'
 import { EMITTER_EVENTS } from '@/constants/emitterEvents.js'
 import { useUserStore } from '@/stores/user'
 import { useAppSettingsStore } from '@/stores/appSettings'
-import { format, isValid } from 'date-fns'
+import { isValid } from 'date-fns'
+import { formatDate as formatLocalDate, formatNumber } from '@shared-ui/utils/datetime.js'
 import { Check, ChevronRight, ExternalLink, Link2, Plus, Unlink } from 'lucide-vue-next'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@shared-ui/components/ui/tooltip'
 
@@ -669,7 +670,7 @@ const articleUrl = computed(() => {
 })
 const formatDate = (value) => {
   const date = new Date(value)
-  return isValid(date) ? format(date, 'PPpp') : '-'
+  return isValid(date) ? formatLocalDate(date, 'PPpp', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }) : '-'
 }
 
 const toFormValues = () => {

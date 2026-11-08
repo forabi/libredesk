@@ -151,7 +151,7 @@
                   <CalendarIcon class="me-2 h-4 w-4" />
                   {{
                     holidayDate && !isNaN(new Date(holidayDate).getTime())
-                      ? format(new Date(holidayDate), 'MMMM dd, yyyy')
+                      ? formatDate(new Date(holidayDate), 'MMMM dd, yyyy', { dateStyle: 'long' })
                       : t('globals.terms.pickDate')
                   }}
                 </Button>
@@ -195,7 +195,7 @@ import { Input } from '@shared-ui/components/ui/input/index.js'
 import TimeField from '@shared-ui/components/TimeField.vue'
 import { Popover, PopoverContent, PopoverTrigger } from '@shared-ui/components/ui/popover/index.js'
 import { cn } from '@shared-ui/lib/utils.js'
-import { format } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import { WEEKDAYS } from '@main/constants/date.js'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'

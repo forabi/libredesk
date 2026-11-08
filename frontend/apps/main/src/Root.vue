@@ -1,6 +1,6 @@
 <template>
   <!-- Both primitive libraries are in use; each reads direction from its own provider. -->
-  <RekaConfigProvider :dir="dir">
+  <RekaConfigProvider :dir="dir" :locale="toIntlLocale(locale)">
     <RadixConfigProvider :dir="dir">
       <TooltipProvider :delay-duration="150">
         <Toaster
@@ -26,6 +26,7 @@ import { useI18n } from 'vue-i18n'
 import { ConfigProvider as RekaConfigProvider } from 'reka-ui'
 import { ConfigProvider as RadixConfigProvider } from 'radix-vue'
 import { localeDir } from '@shared-ui/utils/direction.js'
+import { toIntlLocale } from '@shared-ui/utils/datetime.js'
 
 const mode = useColorMode()
 const { locale } = useI18n()

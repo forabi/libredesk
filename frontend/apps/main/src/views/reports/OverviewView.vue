@@ -285,7 +285,7 @@ import { useIntervalFn, useDocumentVisibility } from '@vueuse/core'
 import { useEmitter } from '@main/composables/useEmitter'
 import { EMITTER_EVENTS } from '@main/constants/emitterEvents.js'
 import { handleHTTPError } from '@shared-ui/utils/http.js'
-import { formatDuration } from '@shared-ui/utils/datetime.js'
+import { formatDuration, formatNumber, formatDate } from '@shared-ui/utils/datetime.js'
 import Card from '@/features/reports/OverviewCard.vue'
 import LineChart from '@/features/reports/OverviewLineChart.vue'
 import Spinner from '@shared-ui/components/ui/spinner/Spinner.vue'
@@ -391,9 +391,7 @@ const formatPercent = (value) => {
 
 const formatCompactNumber = (value) => {
   if (!value || value < 1000) return value
-  return new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(
-    value
-  )
+  return formatNumber(value, { notation: 'compact', maximumFractionDigits: 1 })
 }
 
 const formattedSlaCounts = computed(() => ({
@@ -403,7 +401,9 @@ const formattedSlaCounts = computed(() => ({
   avg_resolution_time_sec: formatDuration(slaCounts.value.avg_resolution_time_sec, false)
 }))
 
-const lastUpdateFormatted = computed(() => lastUpdate.value.toLocaleTimeString())
+const lastUpdateFormatted = computed(() =>
+  formatDate(lastUpdate.value, 'h:mm:ss a', { timeStyle: 'medium' })
+)
 
 const conversationCountLabels = computed(() => ({
   open: t('globals.terms.open'),
