@@ -21,7 +21,7 @@
           <X class="h-4 w-4" aria-hidden="true" />
           {{ t('globals.messages.clearFilters') }}
         </Button>
-        <div class="ml-auto flex items-center gap-2">
+        <div class="ms-auto flex items-center gap-2">
           <Label for="search-sort" class="font-normal text-muted-foreground">
             {{ t('globals.messages.sortBy') }}
           </Label>

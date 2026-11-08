@@ -42,7 +42,7 @@
     <FormField name="is_default" v-slot="{ value, handleChange }" v-if="isOutgoingTemplate">
       <FormItem>
         <FormControl>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox :checked="value" @update:checked="handleChange" />
             <Label>{{ $t('globals.terms.isDefault') }}</Label>
           </div>

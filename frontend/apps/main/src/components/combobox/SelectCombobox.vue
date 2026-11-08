@@ -26,7 +26,7 @@
             v-if="item.availability_status"
             :status="item.availability_status"
             size="sm"
-            class="absolute bottom-0 right-0"
+            class="absolute bottom-0 end-0"
           />
         </div>
 
@@ -54,7 +54,7 @@
               v-if="selected.availability_status"
               :status="selected.availability_status"
               size="sm"
-              class="absolute bottom-0 right-0"
+              class="absolute bottom-0 end-0"
             />
           </div>
 

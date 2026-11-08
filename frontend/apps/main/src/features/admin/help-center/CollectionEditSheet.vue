@@ -50,7 +50,7 @@
           </div>
 
           <div
-            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-72 lg:shrink-0 lg:border-l lg:border-t-0 lg:overflow-y-auto"
+            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-72 lg:shrink-0 lg:border-s lg:border-t-0 lg:overflow-y-auto"
           >
             <div class="space-y-6">
               <div class="space-y-4">

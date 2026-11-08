@@ -5,7 +5,7 @@
     </div>
     <div
       v-if="searchable || $slots.actions"
-      class="ml-auto flex min-w-0 max-w-full flex-wrap items-center justify-end gap-3"
+      class="ms-auto flex min-w-0 max-w-full flex-wrap items-center justify-end gap-3"
     >
       <SearchInput
         v-if="searchable"

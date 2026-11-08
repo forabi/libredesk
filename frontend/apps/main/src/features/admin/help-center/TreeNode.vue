@@ -271,8 +271,8 @@ const isSelected = computed(() => {
   return props.selectedItem.id === props.item.id && props.selectedItem.type === props.item.type
 })
 
-const indentStyle = computed(() => ({ paddingLeft: `${0.75 + props.depth * 1.5}rem` }))
-const childIndentStyle = computed(() => ({ paddingLeft: `${0.75 + (props.depth + 1) * 1.5}rem` }))
+const indentStyle = computed(() => ({ paddingInlineStart: `${0.75 + props.depth * 1.5}rem` }))
+const childIndentStyle = computed(() => ({ paddingInlineStart: `${0.75 + (props.depth + 1) * 1.5}rem` }))
 
 const childCollections = ref([])
 const articles = ref([])
@@ -342,7 +342,7 @@ const selectItem = () => {
 }
 
 .tree-node-title {
-  @apply cursor-pointer text-left hover:underline;
+  @apply cursor-pointer text-start hover:underline;
 }
 
 .tree-node-title:focus-visible {

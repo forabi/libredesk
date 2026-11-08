@@ -56,7 +56,7 @@
           v-if="userStore.can('contacts:write')"
           type="button"
           size="sm"
-          class="flex items-center h-8 ml-auto"
+          class="flex items-center h-8 ms-auto"
           @click="showCreateDialog = true"
         >
           {{ $t('contact.new') }}

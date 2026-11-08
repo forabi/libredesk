@@ -23,7 +23,7 @@
                 autocomplete="new-password"
                 v-model="passwordForm.password"
                 :class="{ 'border-destructive': passwordHasError }"
-                class="pr-10"
+                class="pe-10"
               />
               <button
                 type="button"
@@ -48,7 +48,7 @@
                 autocomplete="new-password"
                 v-model="passwordForm.confirmPassword"
                 :class="{ 'border-destructive': confirmPasswordHasError }"
-                class="pr-10"
+                class="pe-10"
               />
               <button
                 type="button"
@@ -69,7 +69,7 @@
           >
             <span v-if="isLoading" class="flex items-center justify-center">
               <div
-                class="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-3"
+                class="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin me-3"
               ></div>
               {{ t('auth.settingPassword') }}
             </span>
@@ -89,7 +89,7 @@
 </template>
 
 <script setup>
-const PASSWORD_TOGGLE_CLASS = 'absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground'
+const PASSWORD_TOGGLE_CLASS = 'absolute inset-y-0 end-0 flex items-center pe-3 text-muted-foreground hover:text-foreground'
 
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'

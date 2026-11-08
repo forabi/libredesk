@@ -264,15 +264,15 @@
                     <FormLabel>{{ $t('globals.terms.theme') }}</FormLabel>
                     <FormControl>
                       <RadioGroup v-bind="componentField" class="flex gap-4">
-                        <div class="flex items-center space-x-2">
+                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
                           <RadioGroupItem id="theme-system" value="system" />
                           <Label for="theme-system">{{ $t('globals.terms.matchSystem') }}</Label>
                         </div>
-                        <div class="flex items-center space-x-2">
+                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
                           <RadioGroupItem id="theme-light" value="light" />
                           <Label for="theme-light">{{ $t('globals.terms.light') }}</Label>
                         </div>
-                        <div class="flex items-center space-x-2">
+                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
                           <RadioGroupItem id="theme-dark" value="dark" />
                           <Label for="theme-dark">{{ $t('globals.terms.dark') }}</Label>
                         </div>
@@ -374,11 +374,11 @@
                       <FormLabel>{{ $t('globals.messages.headerTextColor') }}</FormLabel>
                       <FormControl>
                         <RadioGroup v-bind="componentField" class="flex gap-4">
-                          <div class="flex items-center space-x-2">
+                          <div class="flex items-center space-x-2 rtl:space-x-reverse">
                             <RadioGroupItem id="text-black" value="black" />
                             <Label for="text-black">{{ $t('globals.terms.black') }}</Label>
                           </div>
-                          <div class="flex items-center space-x-2">
+                          <div class="flex items-center space-x-2 rtl:space-x-reverse">
                             <RadioGroupItem id="text-white" value="white" />
                             <Label for="text-white">{{ $t('globals.terms.white') }}</Label>
                           </div>
@@ -412,15 +412,15 @@
                           @update:model-value="onBackgroundTypeChange"
                           class="flex gap-4"
                         >
-                          <div class="flex items-center space-x-2">
+                          <div class="flex items-center space-x-2 rtl:space-x-reverse">
                             <RadioGroupItem id="bg-solid" value="solid" />
                             <Label for="bg-solid">{{ $t('globals.terms.solid') }}</Label>
                           </div>
-                          <div class="flex items-center space-x-2">
+                          <div class="flex items-center space-x-2 rtl:space-x-reverse">
                             <RadioGroupItem id="bg-gradient" value="gradient" />
                             <Label for="bg-gradient">{{ $t('globals.terms.gradient') }}</Label>
                           </div>
-                          <div class="flex items-center space-x-2">
+                          <div class="flex items-center space-x-2 rtl:space-x-reverse">
                             <RadioGroupItem id="bg-image" value="image" />
                             <Label for="bg-image">{{ $t('globals.terms.image', 1) }}</Label>
                           </div>
@@ -1322,7 +1322,7 @@
 
                 <div class="relative">
                   <CodeEditor :modelValue="integrationSnippet" language="html" :readOnly="true" />
-                  <CopyButton :text="integrationSnippet" class="absolute top-3 right-3" />
+                  <CopyButton :text="integrationSnippet" class="absolute top-3 end-3" />
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -1347,7 +1347,7 @@
                       language="javascript"
                       :readOnly="true"
                     />
-                    <CopyButton :text="jwtPayloadExample" class="absolute top-3 right-3" />
+                    <CopyButton :text="jwtPayloadExample" class="absolute top-3 end-3" />
                   </div>
 
                   <p class="ui-description">
@@ -1362,7 +1362,7 @@
                     />
                     <CopyButton
                       :text="authenticatedIntegrationSnippet"
-                      class="absolute top-3 right-3"
+                      class="absolute top-3 end-3"
                     />
                   </div>
 
@@ -1385,7 +1385,7 @@
 
                   <div class="relative">
                     <CodeEditor :modelValue="jsApiSnippet" language="javascript" :readOnly="true" />
-                    <CopyButton :text="jsApiSnippet" class="absolute top-3 right-3" />
+                    <CopyButton :text="jsApiSnippet" class="absolute top-3 end-3" />
                   </div>
                 </div>
               </AccordionContent>

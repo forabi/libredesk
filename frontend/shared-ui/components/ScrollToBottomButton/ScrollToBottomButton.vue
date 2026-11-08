@@ -7,7 +7,7 @@
     leave-from-class="opacity-100 translate-y-0"
     leave-to-class="opacity-0 translate-y-1"
   >
-    <div v-show="!isAtBottom" class="absolute bottom-5 right-6 z-10">
+    <div v-show="!isAtBottom" class="absolute bottom-5 end-6 z-10">
       <button
         @click="$emit('scroll-to-bottom')"
         class="w-10 h-10 rounded-full flex items-center justify-center shadow-lg border bg-background text-primary transition-colors duration-200 hover:bg-accent"
@@ -16,7 +16,7 @@
       </button>
       <span
         v-if="unreadCount > 0"
-        class="absolute -top-1 -right-1 min-w-[20px] h-5 px-1.5 rounded-full bg-primary text-primary-foreground text-xs font-medium flex items-center justify-center"
+        class="absolute -top-1 -end-1 min-w-[20px] h-5 px-1.5 rounded-full bg-primary text-primary-foreground text-xs font-medium flex items-center justify-center"
       >
         {{ unreadCount }}
       </span>

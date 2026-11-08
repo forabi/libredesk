@@ -6,7 +6,7 @@
         <Button
           v-if="isMobile"
           variant="ghost"
-          class="w-11 h-11 lg:w-8 lg:h-8 p-0 shrink-0 -ml-2 lg:-ml-1"
+          class="w-11 h-11 lg:w-8 lg:h-8 p-0 shrink-0 -ms-2 lg:-ms-1"
           :aria-label="t('globals.messages.back')"
           @click="goBackToList"
         >

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="dueAt" class="flex justify-start items-center space-x-2">
+  <div v-if="dueAt" class="flex justify-start items-center space-x-2 rtl:space-x-reverse">
     <span v-if="sla?.status === 'overdue'" key="overdue" :class="compact ? 'sla-compact text-destructive' : 'sla-badge sla-overdue'">
       <AlertCircle size="12" class="size-3 shrink-0 text-destructive" stroke-width="2" />
       <span class="sla-text">
@@ -57,7 +57,7 @@ watch(
 <style scoped>
 .sla-badge {
   @apply inline-flex items-center px-1.5 py-0.5 rounded-md border transition-colors
-         text-xs font-medium tracking-tight space-x-1 hover:shadow-sm;
+         text-xs font-medium tracking-tight space-x-1 rtl:space-x-reverse hover:shadow-sm;
 }
 
 .sla-compact {

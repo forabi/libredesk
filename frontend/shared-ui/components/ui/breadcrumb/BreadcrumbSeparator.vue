@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
   <li role="presentation" aria-hidden="true" :class="cn('[&>svg]:size-3.5', props.class)">
     <slot>
-      <ChevronRightIcon />
+      <ChevronRightIcon class="rtl:[scale:-1_1]" />
     </slot>
   </li>
 </template>

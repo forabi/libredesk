@@ -3,7 +3,7 @@
     <FormField name="is_active" v-slot="{ value, handleChange }" v-if="!isNewForm">
       <FormItem>
         <FormControl>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox
               :aria-label="$t('globals.terms.active')"
               :checked="value"
@@ -58,7 +58,7 @@
                 <div
                   v-for="event in group.events"
                   :key="event.value"
-                  class="flex items-start space-x-3"
+                  class="flex items-start space-x-3 rtl:space-x-reverse"
                 >
                   <Checkbox
                     :id="`${eventId}-${event.value}`"

@@ -70,7 +70,7 @@
             type="button"
             variant="outline"
             size="default"
-            class="h-auto min-h-9 w-full justify-start whitespace-normal text-left font-normal"
+            class="h-auto min-h-9 w-full justify-start whitespace-normal text-start font-normal"
             @click="send(preset)"
           >
             {{ preset }}

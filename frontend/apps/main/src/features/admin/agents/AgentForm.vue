@@ -186,7 +186,7 @@
               @click="regenerateAPIKey"
               :disabled="isAPIKeyLoading"
             >
-              <RotateCcw class="w-4 h-4 mr-1" />
+              <RotateCcw class="w-4 h-4 me-1" />
               {{ $t('globals.messages.regenerate') }}
             </Button>
             <Button
@@ -196,7 +196,7 @@
               @click="revokeAPIKey"
               :disabled="isAPIKeyLoading"
             >
-              <Trash2 class="w-4 h-4 mr-1" />
+              <Trash2 class="w-4 h-4 me-1" />
               {{ $t('globals.messages.revoke') }}
             </Button>
           </div>
@@ -273,7 +273,7 @@
     <FormField name="send_welcome_email" v-slot="{ value, handleChange }" v-if="isNewForm">
       <FormItem>
         <FormControl>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox :checked="value" @update:checked="handleChange" />
             <Label>{{ $t('globals.terms.sendWelcomeEmail') }}</Label>
           </div>

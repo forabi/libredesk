@@ -5,7 +5,7 @@
   <LoadingOverlay :loading="isLoading">
     <WebhookForm @submit.prevent="onSubmit" :form="form" :isNewForm="isNewForm">
       <template #footer>
-        <div class="flex space-x-3">
+        <div class="flex space-x-3 rtl:space-x-reverse">
           <Button type="submit" :isLoading="formLoading">
             {{ isNewForm ? t('globals.messages.create') : t('globals.messages.save') }}
           </Button>

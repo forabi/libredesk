@@ -34,7 +34,7 @@
                       : 'none'
                   : undefined
               "
-              class="h-11 px-4 text-left text-sm font-medium text-muted-foreground"
+              class="h-11 px-4 text-start text-sm font-medium text-muted-foreground"
               :class="{
                 'max-sm:hidden': isHiddenOnPhone(header.column.id, headerIndex),
                 'whitespace-nowrap': header.column.columnDef.meta?.compact || header.column.id === 'actions',
@@ -47,7 +47,7 @@
                 type="button"
                 variant="ghost"
                 size="sm"
-                class="group h-auto justify-start gap-2 whitespace-normal px-0 py-2 text-left text-muted-foreground can-hover:hover:bg-transparent can-hover:hover:text-foreground"
+                class="group h-auto justify-start gap-2 whitespace-normal px-0 py-2 text-start text-muted-foreground can-hover:hover:bg-transparent can-hover:hover:text-foreground"
                 :class="{ 'whitespace-nowrap': header.column.columnDef.meta?.compact }"
                 @click="header.column.getToggleSortingHandler()?.($event)"
               >
@@ -97,7 +97,7 @@
               <TableCell
                 v-for="(cell, cellIndex) in rows[virtualRow.index].getVisibleCells()"
                 :key="cell.id"
-                class="px-4 py-3 text-left text-sm [overflow-wrap:anywhere]"
+                class="px-4 py-3 text-start text-sm [overflow-wrap:anywhere]"
                 :class="[
                   cell.column.id === 'actions' ? actionCellClass : '',
                   cell.column.columnDef.meta?.compact && 'whitespace-nowrap',

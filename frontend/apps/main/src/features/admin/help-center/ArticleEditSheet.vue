@@ -87,7 +87,7 @@
           </div>
 
           <div
-            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-80 lg:shrink-0 lg:border-l lg:border-t-0 lg:overflow-y-auto"
+            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-80 lg:shrink-0 lg:border-s lg:border-t-0 lg:overflow-y-auto"
           >
             <div class="space-y-6">
               <div class="space-y-4">
@@ -130,7 +130,7 @@
                     <Button
                       type="button"
                       variant="outline"
-                      class="h-auto min-w-0 flex-1 justify-start gap-3 px-3 py-2.5 text-left font-normal disabled:opacity-100"
+                      class="h-auto min-w-0 flex-1 justify-start gap-3 px-3 py-2.5 text-start font-normal disabled:opacity-100"
                       :class="{ 'font-medium': locale === loadedArticle.locale }"
                       :disabled="locale === loadedArticle.locale"
                       :aria-current="locale === loadedArticle.locale ? 'page' : undefined"
@@ -195,7 +195,7 @@
                   class="w-full"
                   @click="openLinkDialog"
                 >
-                  <Link2 class="mr-2 size-4" aria-hidden="true" />
+                  <Link2 class="me-2 size-4" aria-hidden="true" />
                   {{ t('helpCenter.linkExistingArticle') }}
                 </Button>
               </div>
@@ -240,7 +240,7 @@
                   size="sm"
                   @click="emit('create-translation-collection', { locale: form.values.locale })"
                 >
-                  <Plus class="mr-2 size-4" aria-hidden="true" />
+                  <Plus class="me-2 size-4" aria-hidden="true" />
                   {{ t('helpCenter.newCollection') }}
                 </Button>
 

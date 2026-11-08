@@ -70,14 +70,14 @@
                 :aria-invalid="passwordHasError || undefined"
                 v-model="loginForm.password"
                 :class="{ 'border-destructive': passwordHasError }"
-                class="pr-10"
+                class="pe-10"
               />
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
                 :aria-label="showPassword ? t('auth.hidePassword') : t('auth.showPassword')"
-                class="absolute right-0 top-0 text-muted-foreground"
+                class="absolute end-0 top-0 text-muted-foreground"
                 @click="showPassword = !showPassword"
               >
                 <Eye v-if="!showPassword" class="w-5 h-5" aria-hidden="true" />
@@ -98,7 +98,7 @@
           <Button class="w-full" :disabled="isLoading" type="submit">
             <span v-if="isLoading" class="flex items-center justify-center">
               <div
-                class="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-3"
+                class="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin me-3"
               ></div>
               {{ t('auth.loggingIn') }}
             </span>

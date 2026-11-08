@@ -10,10 +10,10 @@
     :aria-label="$t('conversation.newConversation')"
     :class="panelClass"
   >
-    <header class="flex items-center gap-1 border-b border-border bg-muted pl-4 pr-1 h-11 shrink-0">
+    <header class="flex items-center gap-1 border-b border-border bg-muted ps-4 pe-1 h-11 shrink-0">
       <button
         type="button"
-        class="flex-1 min-w-0 truncate text-left text-sm font-medium"
+        class="flex-1 min-w-0 truncate text-start text-sm font-medium"
         @click="minimized = !minimized"
       >
         {{ $t('conversation.newConversation') }}
@@ -146,11 +146,11 @@ onUnmounted(() => palette.setMacroContext(MACRO_CONTEXT.REPLY))
 const panelClass = computed(() => {
   const base =
     'fixed z-50 flex flex-col overflow-hidden border border-border bg-background shadow-2xl animate-in fade-in-0 slide-in-from-bottom-4 duration-200 motion-reduce:animate-none'
-  if (minimized.value) return [base, 'bottom-0 inset-x-0 sm:inset-x-auto sm:right-4 sm:w-80 sm:rounded-t-lg']
+  if (minimized.value) return [base, 'bottom-0 inset-x-0 sm:inset-x-auto sm:end-4 sm:w-80 sm:rounded-t-lg']
   if (expanded.value) return [base, 'inset-4 mx-auto max-w-5xl rounded-lg']
   return [
     base,
-    'inset-0 sm:inset-auto sm:bottom-0 sm:right-4 sm:w-[40rem] sm:h-[min(42rem,calc(100vh-2rem))] sm:rounded-t-lg'
+    'inset-0 sm:inset-auto sm:bottom-0 sm:end-4 sm:w-[40rem] sm:h-[min(42rem,calc(100vh-2rem))] sm:rounded-t-lg'
   ]
 })
 

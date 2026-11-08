@@ -6,11 +6,11 @@
       variant="muted"
       :absolute="false"
       :center="false"
-      class="absolute left-3 top-1/2 size-4 -translate-y-1/2 pointer-events-none"
+      class="absolute start-3 top-1/2 size-4 -translate-y-1/2 pointer-events-none"
     />
     <Search
       v-else
-      class="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground pointer-events-none"
+      class="absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground pointer-events-none"
       aria-hidden="true"
     />
     <Input
@@ -18,7 +18,7 @@
       :model-value="modelValue"
       :placeholder="placeholder"
       :aria-label="ariaLabel || placeholder"
-      :class="['pl-10', modelValue ? 'pr-10' : 'pr-3', inputClass]"
+      :class="['ps-10', modelValue ? 'pe-10' : 'pe-3', inputClass]"
       @update:model-value="emit('update:modelValue', $event)"
     />
     <slot name="trailing" />
@@ -28,7 +28,7 @@
       variant="ghost"
       size="icon"
       :aria-label="clearLabel"
-      class="absolute right-2 top-1/2 size-7 -translate-y-1/2 text-muted-foreground"
+      class="absolute end-2 top-1/2 size-7 -translate-y-1/2 text-muted-foreground"
       @click="clear"
     >
       <X aria-hidden="true" />

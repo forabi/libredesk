@@ -39,7 +39,7 @@
             class="min-h-[60px]"
             maxlength="500"
           />
-          <div class="text-xs text-muted-foreground text-right mt-1">{{ feedback.length }}/500</div>
+          <div class="text-xs text-muted-foreground text-end mt-1">{{ feedback.length }}/500</div>
         </div>
 
         <WidgetError :error-message="submitError" class="mb-3 rounded-md border" />
@@ -65,7 +65,7 @@
             :class="{ 'motion-safe:animate-pop': justSubmitted }"
             >{{ getRatingEmoji(csatMeta.submitted_rating) }}</span
           >
-          <span class="text-xs text-muted-foreground ml-2">{{
+          <span class="text-xs text-muted-foreground ms-2">{{
             getRatingText(csatMeta.submitted_rating)
           }}</span>
         </div>

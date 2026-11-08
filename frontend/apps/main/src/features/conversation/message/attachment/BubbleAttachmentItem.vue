@@ -1,5 +1,5 @@
 <template>
-  <div class="group/attachment flex items-center text-left">
+  <div class="group/attachment flex items-center text-start">
     <Popover :open="showAudio" @update:open="showAudio = $event">
       <PopoverTrigger as-child>
         <div
@@ -31,7 +31,7 @@
               </div>
               <DownloadLink
                 :url="attachment.url"
-                class="text-white hover:text-white hover:bg-white/15 shrink-0 pointer-events-auto -mr-0.5"
+                class="text-white hover:text-white hover:bg-white/15 shrink-0 pointer-events-auto -me-0.5"
               />
             </div>
           </template>
@@ -51,7 +51,7 @@
           <DownloadLink
             v-if="!isImage"
             :url="attachment.url"
-            class="absolute top-1.5 right-1.5 transition-opacity can-hover:opacity-0 can-hover:group-hover/attachment:opacity-100 can-hover:group-focus-within/attachment:opacity-100"
+            class="absolute top-1.5 end-1.5 transition-opacity can-hover:opacity-0 can-hover:group-hover/attachment:opacity-100 can-hover:group-focus-within/attachment:opacity-100"
           />
         </div>
       </PopoverTrigger>

@@ -3,11 +3,11 @@
     <DataTableActionTrigger />
     <DropdownMenuContent>
       <DropdownMenuItem @click="editTool">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ t('globals.messages.edit') }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="toggleEnabled">
-        <component :is="tool.enabled ? PowerOff : Power" class="mr-2 h-4 w-4" />
+        <component :is="tool.enabled ? PowerOff : Power" class="me-2 h-4 w-4" />
         {{ tool.enabled ? t('globals.messages.disable') : t('globals.messages.enable') }}
       </DropdownMenuItem>
       <DropdownMenuSeparator />
@@ -15,7 +15,7 @@
         @click="() => (alertOpen = true)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

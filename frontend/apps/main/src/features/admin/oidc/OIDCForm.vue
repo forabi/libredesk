@@ -3,7 +3,7 @@
     <FormField name="enabled" v-slot="{ value, handleChange }" v-if="!isNewForm">
       <FormItem>
         <FormControl>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox
               :aria-label="$t('globals.terms.enabled')"
               :checked="value"
@@ -108,7 +108,7 @@
 
     <FormField name="verify_email" v-slot="{ value, handleChange, meta }">
       <FormItem>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 rtl:space-x-reverse">
           <FormControl>
             <Checkbox
               type="button"

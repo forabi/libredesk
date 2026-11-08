@@ -20,7 +20,7 @@
           :key="provider.value"
           type="button"
           variant="outline"
-          class="h-auto flex-col items-start gap-2 whitespace-normal p-4 text-left"
+          class="h-auto flex-col items-start gap-2 whitespace-normal p-4 text-start"
           @click="selectSetupMethod(provider.value)"
         >
           <span class="flex items-center gap-2 font-semibold">
@@ -818,7 +818,7 @@
       </DialogHeader>
 
       <div class="space-y-4">
-        <ol v-show="flowType === 'new_inbox'" class="space-y-3 border-l-2 pl-4 text-sm" role="list">
+        <ol v-show="flowType === 'new_inbox'" class="space-y-3 border-s-2 ps-4 text-sm" role="list">
           <li>
             {{ $t('admin.inbox.oauth.step1CreateApp') }}
             <a

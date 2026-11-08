@@ -52,7 +52,7 @@
               <p class="text-sm font-medium">{{ $t('globals.terms.log', 2) }}</p>
               <Card class="p-0 overflow-hidden">
                 <div class="relative">
-                  <CopyButton :text="status.logs.join('\n')" class="absolute top-2 right-2 z-10" />
+                  <CopyButton :text="status.logs.join('\n')" class="absolute top-2 end-2 z-10" />
                   <div
                     class="bg-muted text-foreground p-4 text-xs font-mono min-h-24 max-h-60 overflow-y-auto space-y-1 logs-scroll-container"
                   >

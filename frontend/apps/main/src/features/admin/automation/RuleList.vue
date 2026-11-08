@@ -15,15 +15,15 @@
         <DataTableActionTrigger />
         <DropdownMenuContent>
           <DropdownMenuItem @click="navigateToEditRule(rule.id)">
-            <Pencil class="mr-2 h-4 w-4" />
+            <Pencil class="me-2 h-4 w-4" />
             <span>{{ $t('globals.messages.edit') }}</span>
           </DropdownMenuItem>
           <DropdownMenuItem @click="$emit('toggle-rule', rule.id)" v-if="rule.enabled">
-            <PowerOff class="mr-2 h-4 w-4" />
+            <PowerOff class="me-2 h-4 w-4" />
             <span>{{ $t('globals.messages.disable') }}</span>
           </DropdownMenuItem>
           <DropdownMenuItem @click="$emit('toggle-rule', rule.id)" v-else>
-            <Power class="mr-2 h-4 w-4" />
+            <Power class="me-2 h-4 w-4" />
             <span>{{ $t('globals.messages.enable') }}</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
@@ -31,7 +31,7 @@
             class="text-destructive focus:text-destructive"
             @click="() => (alertOpen = true)"
           >
-            <Trash class="mr-2 h-4 w-4" />
+            <Trash class="me-2 h-4 w-4" />
             <span>{{ $t('globals.messages.delete') }}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>

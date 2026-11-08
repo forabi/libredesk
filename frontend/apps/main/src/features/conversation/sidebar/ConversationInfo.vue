@@ -145,7 +145,7 @@ import api from '@main/api'
 import { useI18n } from 'vue-i18n'
 
 const INFO_GRID_CLASS = 'grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] items-start gap-x-4 gap-y-3'
-const INFO_VALUE_CLASS = 'sidebar-value min-w-0 text-right [overflow-wrap:anywhere]'
+const INFO_VALUE_CLASS = 'sidebar-value min-w-0 text-end [overflow-wrap:anywhere]'
 
 const emitter = useEmitter()
 const { t } = useI18n()

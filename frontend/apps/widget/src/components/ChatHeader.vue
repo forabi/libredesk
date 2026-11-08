@@ -12,7 +12,7 @@
       </Button>
       <ChatTitle />
     </div>
-    <div class="flex items-center gap-2 ml-auto">
+    <div class="flex items-center gap-2 ms-auto">
       <DropdownMenu v-if="!widgetStore.isMobileFullScreen || canDownloadTranscript">
         <DropdownMenuTrigger as-child>
           <Button type="button" variant="ghost" size="sm" :aria-label="$t('globals.terms.more')">
@@ -24,8 +24,8 @@
             v-if="!widgetStore.isMobileFullScreen"
             @select="widgetStore.toggleExpand"
           >
-            <Minimize2 v-if="widgetStore.isExpanded" class="mr-2 h-4 w-4" aria-hidden="true" />
-            <Maximize2 v-else class="mr-2 h-4 w-4" aria-hidden="true" />
+            <Minimize2 v-if="widgetStore.isExpanded" class="me-2 h-4 w-4" aria-hidden="true" />
+            <Maximize2 v-else class="me-2 h-4 w-4" aria-hidden="true" />
             {{ widgetStore.isExpanded ? $t('globals.terms.collapse') : $t('globals.terms.expand') }}
           </DropdownMenuItem>
           <DropdownMenuItem
@@ -33,7 +33,7 @@
             :disabled="downloading"
             @select="downloadTranscript"
           >
-            <Download class="mr-2 h-4 w-4" aria-hidden="true" />
+            <Download class="me-2 h-4 w-4" aria-hidden="true" />
             {{ $t('conversation.downloadTranscript') }}
           </DropdownMenuItem>
         </DropdownMenuContent>

@@ -349,7 +349,7 @@ onMounted(async () => {
             >
               <div
                 v-if="modelValue.length > 1"
-                class="drag-handle ml-2 cursor-move text-muted-foreground"
+                class="drag-handle ms-2 cursor-move text-muted-foreground"
               >
                 <GripVertical class="size-4" aria-hidden="true" />
               </div>
@@ -360,14 +360,14 @@ onMounted(async () => {
                 @move="moveCampaign(index, $event)"
               />
               <Switch
-                :class="modelValue.length > 1 ? '' : 'ml-3'"
+                :class="modelValue.length > 1 ? '' : 'ms-3'"
                 :checked="item.enabled"
                 :aria-label="t('globals.terms.enabled')"
                 @update:checked="toggleEnabled(item.id, $event)"
               />
               <button
                 type="button"
-                class="flex min-w-0 flex-1 items-center gap-3 py-3 pr-3 text-left"
+                class="flex min-w-0 flex-1 items-center gap-3 py-3 pe-3 text-start"
                 @click="selected = item.id"
               >
                 <div class="flex-1 min-w-0">
@@ -432,7 +432,7 @@ onMounted(async () => {
             <TableHeader>
               <TableRow>
                 <TableHead>{{ t('globals.terms.name') }}</TableHead>
-                <TableHead v-for="key in STAT_KEYS" :key="key" class="text-right">
+                <TableHead v-for="key in STAT_KEYS" :key="key" class="text-end">
                   {{ t(STAT_TRANSLATION_KEYS[key]) }}
                 </TableHead>
               </TableRow>
@@ -445,7 +445,7 @@ onMounted(async () => {
                     t('widget.deletedCampaign')
                   }}
                 </TableCell>
-                <TableCell v-for="key in STAT_KEYS" :key="key" class="text-right tabular-nums">
+                <TableCell v-for="key in STAT_KEYS" :key="key" class="text-end tabular-nums">
                   {{ row[key] }}
                 </TableCell>
               </TableRow>
@@ -463,7 +463,7 @@ onMounted(async () => {
     <!-- Campaign editor -->
     <template v-else>
       <div data-campaign-editor class="flex items-center justify-between gap-2">
-        <Button type="button" variant="ghost" size="sm" class="-ml-2" @click="selected = ''">
+        <Button type="button" variant="ghost" size="sm" class="-ms-2" @click="selected = ''">
           <ChevronRight class="size-4 rotate-180" />
           {{ t('widget.backToCampaigns') }}
         </Button>

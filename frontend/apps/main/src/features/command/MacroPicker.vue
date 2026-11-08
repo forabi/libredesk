@@ -3,7 +3,7 @@
   <CommandGroup v-if="macros.length" class="flex h-full min-h-0 flex-col">
     <div class="min-h-0 flex-1">
       <div class="grid h-full min-h-0 grid-cols-12">
-        <div class="col-span-4 h-full min-h-0 overflow-y-auto border-r border-border/70 pr-2">
+        <div class="col-span-4 h-full min-h-0 overflow-y-auto border-e border-border/70 pe-2">
           <CommandItem
             v-for="macro in macros"
             :key="macro.value"

@@ -17,7 +17,7 @@
         ref="emojiPickerRef"
         :native="true"
         @select="onSelectEmoji"
-        class="origin-bottom-left absolute bottom-14 left-0 md:left-14 z-20"
+        class="origin-bottom-left rtl:origin-bottom-right absolute bottom-14 start-0 md:start-14 z-20"
         v-if="isEmojiPickerVisible"
       />
     </Transition>
@@ -112,9 +112,9 @@
         <TooltipContent>{{ $t('replyBox.generateReply') }}</TooltipContent>
       </Tooltip>
     </div>
-    <div class="ml-auto flex items-center rounded-md shadow-sm">
+    <div class="ms-auto flex items-center rounded-md shadow-sm">
       <Button
-        class="h-8 max-md:h-11 px-4 rounded-r-none"
+        class="h-8 max-md:h-11 px-4 rounded-e-none"
         @click="handleSend"
         :disabled="!enableSend"
         :isLoading="isSending"
@@ -125,7 +125,7 @@
       <DropdownMenu v-if="showSendButton">
         <DropdownMenuTrigger as-child>
           <Button
-            class="h-8 max-md:h-11 px-2 rounded-l-none border-l border-primary-foreground/30 [&[data-state=open]>svg]:rotate-180"
+            class="h-8 max-md:h-11 px-2 rounded-s-none border-s border-primary-foreground/30 [&[data-state=open]>svg]:rotate-180"
             :disabled="!enableSend"
           >
             <ChevronDownIcon class="text-primary-foreground transition-transform" />

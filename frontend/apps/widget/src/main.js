@@ -5,6 +5,7 @@ import App from './App.vue'
 import api from './api/index.js'
 import { resolveLanguage } from './utils/language.js'
 import '@shared-ui/assets/styles/main.scss'
+import { applyDocumentLocale } from '@shared-ui/utils/direction.js'
 
 async function initWidget () {
     try {
@@ -33,6 +34,7 @@ async function initWidget () {
 
         // Fetch language messages
         const langMessages = await api.getLanguage(lang)
+        applyDocumentLocale(lang)
 
         // Initialize i18n
         const i18nConfig = {

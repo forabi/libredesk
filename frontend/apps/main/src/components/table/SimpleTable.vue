@@ -7,7 +7,7 @@
             v-for="(header, index) in headers"
             :key="index"
             scope="col"
-            class="h-11 px-4 text-left text-sm font-medium text-muted-foreground"
+            class="h-11 px-4 text-start text-sm font-medium text-muted-foreground"
           >
             {{ header }}
           </th>

@@ -254,11 +254,11 @@ onMounted(() => {
                   <CollapsibleTrigger as-child>
                     <SidebarMenuButton :isActive="isActiveParent(item.href)">
                       <span>{{ t(item.titleKey, item.isTitleKeyPlural === true ? 2 : 1) }}</span>
-                      <BetaBadge v-if="item.badge" class="ml-1.5">
+                      <BetaBadge v-if="item.badge" class="ms-1.5">
                         {{ item.badge }}
                       </BetaBadge>
                       <ChevronRight
-                        class="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                        class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                       />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
@@ -427,7 +427,7 @@ onMounted(() => {
                         {{ t('globals.terms.teamInbox', 2) }}
                       </span>
                       <ChevronRight
-                        class="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                        class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                       />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
@@ -469,7 +469,7 @@ onMounted(() => {
                         />
                       </div>
                       <ChevronRight
-                        class="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                        class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                         v-if="userViews.length"
                       />
                     </SidebarMenuButton>
@@ -484,7 +484,7 @@ onMounted(() => {
                       >
                         <SidebarMenuButton
                           size="sm"
-                          class="group-has-[[data-sidebar=menu-action]]/menu-item:pr-7"
+                          class="group-has-[[data-sidebar=menu-action]]/menu-item:pe-7"
                           :isActive="route.params.viewID == view.id"
                           @click="navigateToViewInbox(view.id)"
                         >
@@ -499,7 +499,7 @@ onMounted(() => {
                         <DropdownMenu>
                           <DropdownMenuTrigger as-child>
                             <SidebarMenuAction
-                              class="mr-1 can-hover:opacity-0 can-hover:group-hover/view-item:opacity-100 data-[state=open]:opacity-100"
+                              class="me-1 can-hover:opacity-0 can-hover:group-hover/view-item:opacity-100 data-[state=open]:opacity-100"
                               @click.prevent
                             >
                               <EllipsisVertical />
@@ -534,7 +534,7 @@ onMounted(() => {
                         {{ t('globals.terms.sharedView', 2) }}
                       </span>
                       <ChevronRight
-                        class="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                        class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                       />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
