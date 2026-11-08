@@ -1,7 +1,7 @@
 <template>
   <Badge
     variant="outline"
-    class="rounded-full uppercase tracking-[0.07em] font-medium text-[9px] leading-none px-[5.5px] py-[3px] bg-warning/10 text-warning-600 border-warning/50 shrink-0"
+    class="rounded-full uppercase tracking-[0.07em] rtl:tracking-normal font-medium text-[9px] rtl:text-[10px] leading-none px-[5.5px] py-[3px] bg-warning/10 text-warning-600 border-warning/50 shrink-0"
   >
     <slot />
   </Badge>

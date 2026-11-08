@@ -149,6 +149,7 @@ details.hc-details > .hc-details-content > :last-child { margin-bottom: 0; }
     border-top: 1px solid var(--hc-border); text-decoration: none;
 }
 .hc-embed-open:hover { color: var(--hc-ink); text-decoration: none; }
+[dir="rtl"] .hc-embed-open svg { transform: scaleX(-1); }
 
 .hc-embed-langs {
     display: flex; align-items: center; justify-content: center; gap: .5rem;

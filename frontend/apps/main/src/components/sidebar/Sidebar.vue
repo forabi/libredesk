@@ -254,8 +254,8 @@ onMounted(() => {
                   <CollapsibleTrigger as-child>
                     <SidebarMenuButton :isActive="isActiveParent(item.href)">
                       <span>{{ t(item.titleKey, item.isTitleKeyPlural === true ? 2 : 1) }}</span>
-                      <BetaBadge v-if="item.badge" class="ms-1.5">
-                        {{ item.badge }}
+                      <BetaBadge v-if="item.badgeKey" class="ms-1.5">
+                        {{ t(item.badgeKey) }}
                       </BetaBadge>
                       <ChevronRight
                         class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
