@@ -43,7 +43,7 @@ defineEmits(['collection', 'article'])
         <Button
           type="button"
           variant="ghost"
-          class="w-full h-auto min-h-12 justify-start gap-3 py-3 px-2 text-left whitespace-normal"
+          class="w-full h-auto min-h-12 justify-start gap-3 py-3 px-2 text-start whitespace-normal"
           :data-help-article="item.id"
           @click="$emit('article', item)"
         >
@@ -56,7 +56,7 @@ defineEmits(['collection', 'article'])
         <Button
           type="button"
           variant="ghost"
-          class="w-full h-auto justify-start gap-3 py-4 px-2 text-left whitespace-normal"
+          class="w-full h-auto justify-start gap-3 py-4 px-2 text-start whitespace-normal"
           :data-help-collection="child.id"
           @click="$emit('collection', child)"
         >

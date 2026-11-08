@@ -34,7 +34,7 @@ const open = (article) => {
       :key="article.id"
       type="button"
       variant="ghost"
-      class="w-full h-auto justify-start px-2 py-1.5 text-left whitespace-normal"
+      class="w-full h-auto justify-start px-2 py-1.5 text-start whitespace-normal"
       @click="open(article)"
       >{{ article.title }}</Button
     >

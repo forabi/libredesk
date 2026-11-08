@@ -26,7 +26,7 @@
       :disabled="modelValue.rules.length >= MAX_FILTER_GROUPS"
       @click.stop="addGroup"
     >
-      <Plus class="w-3 h-3 mr-1" />
+      <Plus class="w-3 h-3 me-1" />
       {{ t('filter.addGroup') }}
     </Button>
   </div>

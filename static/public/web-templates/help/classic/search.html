@@ -2,7 +2,7 @@
 {{ template "classic-header" . }}
 
 {{ if .Data.Query }}
-<h1 class="hc-page-title">{{ $.L.T "helpCenter.searchResults" }} &ldquo;{{ .Data.Query }}&rdquo;</h1>
+<h1 class="hc-page-title">{{ $.L.Ts "helpCenter.searchResultsFor" "query" .Data.Query }}</h1>
 {{ if .Data.Results }}
 <ul class="hc-results">
     {{ range .Data.Results }}

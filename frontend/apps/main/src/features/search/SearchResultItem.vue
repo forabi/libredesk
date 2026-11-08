@@ -20,7 +20,7 @@
         </div>
         <time
           :datetime="timestamp"
-          :title="format(new Date(timestamp), 'MMM d, yyyy HH:mm')"
+          :title="formatDate(timestamp, 'MMM d, yyyy HH:mm', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' })"
           class="text-xs text-muted-foreground whitespace-nowrap tabular-nums shrink-0"
         >
           {{ getRelativeTime(timestamp) }}
@@ -46,10 +46,10 @@
       <div
         class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground"
       >
-        <Badge v-if="status" variant="outline" class="font-normal">{{ status }}</Badge>
+        <Badge v-if="status" variant="outline" class="font-normal">{{ statusLabel($t, status) }}</Badge>
         <span v-if="item.priority" class="inline-flex items-center gap-1">
           <PriorityMarker :priority="item.priority" />
-          {{ item.priority }}
+          {{ priorityLabel($t, item.priority) }}
         </span>
         <span class="tabular-nums">#{{ referenceNumber }}</span>
         <span v-if="item.inbox_name" class="inline-flex items-center gap-1.5 min-w-0">
@@ -84,13 +84,13 @@
 </template>
 
 <script setup>
+import { statusLabel, priorityLabel } from '@shared-ui/utils/defaultTerms.js'
 import { computed } from 'vue'
-import { format } from 'date-fns'
 import { Mail, Tag, UserRound, UsersRound } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { Avatar, AvatarFallback, AvatarImage } from '@shared-ui/components/ui/avatar'
 import { Badge } from '@shared-ui/components/ui/badge'
-import { getRelativeTime } from '@shared-ui/utils/datetime.js'
+import { getRelativeTime, formatDate } from '@shared-ui/utils/datetime.js'
 import PriorityMarker from '@main/features/conversation/PriorityMarker.vue'
 import { CHANNEL_ICONS } from '@main/constants/channelIcons.js'
 import HighlightedText from './HighlightedText.vue'

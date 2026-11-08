@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 import { CircleDot, Tag, TagIcon, UserPlus, Users, UsersRound, X } from 'lucide-vue-next'
 import { useConversationStore } from '@main/stores/conversation'
 import { useUsersStore } from '@main/stores/users'
@@ -33,7 +34,7 @@ export function useBulkCommands() {
       },
       ...conversationStore.statusOptionsNoSnooze.map((status) => ({
         id: `bulk.status.${status.value}`,
-        label: status.label,
+        label: statusLabel(t, status.label),
         parent: 'bulk.status',
         icon: CircleDot,
         run: () => bulkUpdateStatus(status.label)

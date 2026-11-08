@@ -6,7 +6,7 @@
         :aria-current="isCurrent ? 'page' : undefined"
         class="group relative block cursor-pointer px-3 py-3 transition-colors duration-150 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
         :class="{
-          'bg-accent before:absolute before:inset-y-3 before:left-0 before:w-0.5 before:rounded-r before:bg-primary': isCurrent,
+          'bg-accent before:absolute before:inset-y-3 before:start-0 before:w-0.5 before:rounded-e before:bg-primary': isCurrent,
           'bg-primary/5 can-hover:hover:bg-primary/10': isItemSelected && !isCurrent,
           'can-hover:hover:bg-accent/40': !isCurrent && !isItemSelected
         }"
@@ -140,7 +140,7 @@
                 </template>
                 <template v-else>
                   <Reply
-                    class="size-3 text-success inline-block align-[-2px] mr-0.5"
+                    class="size-3 text-success inline-block align-[-2px] me-0.5"
                     :size="12"
                     :stroke-width="2"
                     v-if="conversation.last_message_sender === 'agent'"
@@ -179,11 +179,11 @@
     <ContextMenuContent>
       <!-- Long press is the only way to reach the first checkbox on touch. -->
       <ContextMenuItem v-if="canBulkAct && !showCheckbox" @click="handleSelect">
-        <SquareCheck class="w-4 h-4 mr-2" />
+        <SquareCheck class="w-4 h-4 me-2" />
         {{ $t('conversation.bulkActions.selectConversation') }}
       </ContextMenuItem>
       <ContextMenuItem @click="handleMarkAsUnread">
-        <MailOpen class="w-4 h-4 mr-2" />
+        <MailOpen class="w-4 h-4 me-2" />
         {{ $t('globals.messages.markAsUnread') }}
       </ContextMenuItem>
     </ContextMenuContent>

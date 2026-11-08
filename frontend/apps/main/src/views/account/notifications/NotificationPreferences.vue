@@ -56,7 +56,7 @@
             :key="row.type"
             class="grid grid-cols-3 items-center gap-y-3 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_repeat(3,5rem)]"
           >
-            <div class="col-span-3 min-w-0 sm:col-span-1 sm:pr-4">
+            <div class="col-span-3 min-w-0 sm:col-span-1 sm:pe-4">
               <p class="text-sm text-foreground">{{ typeLabel(row.type) }}</p>
             </div>
             <div v-for="channel in channels" :key="channel.key" class="flex justify-center">

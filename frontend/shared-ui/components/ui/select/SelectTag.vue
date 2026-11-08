@@ -85,7 +85,7 @@
             size="xs"
             variant="muted"
             :absolute="false"
-            class="mr-1 h-4 w-4 shrink-0"
+            class="me-1 h-4 w-4 shrink-0"
           />
           <div v-if="$slots.action" class="shrink-0">
             <slot name="action" />
@@ -115,7 +115,7 @@
         </ComboboxContent>
       </ComboboxPortal>
     </ComboboxRoot>
-    <div v-if="compact && tags.length && $slots.action" class="ml-auto shrink-0">
+    <div v-if="compact && tags.length && $slots.action" class="ms-auto shrink-0">
       <slot name="action" />
     </div>
   </TagsInput>

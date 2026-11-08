@@ -15,7 +15,7 @@ export const createHelpCenterColumns = (t, { onOpen, onEdit, onDelete, onToggle 
           'button',
           {
             type: 'button',
-            class: 'text-left text-foreground font-medium hover:underline cursor-pointer',
+            class: 'text-start text-foreground font-medium hover:underline cursor-pointer',
             onClick: () => onOpen?.(row.original)
           },
           row.getValue('name')

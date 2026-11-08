@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
-import { format, isValid } from 'date-fns'
+import { isValid } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 
 const props = defineProps({
   value: { type: [String, Number, Date], default: null }
@@ -11,7 +12,7 @@ const date = computed(() => {
   const parsed = new Date(props.value)
   return isValid(parsed) ? parsed : null
 })
-const fullTimestamp = computed(() => date.value ? format(date.value, 'd MMM yyyy, h:mm:ss a OOOO') : '')
+const fullTimestamp = computed(() => date.value ? formatDate(date.value, 'd MMM yyyy, h:mm:ss a OOOO', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit', timeZoneName: 'short' }) : '')
 </script>
 
 <template>
@@ -21,5 +22,5 @@ const fullTimestamp = computed(() => date.value ? format(date.value, 'd MMM yyyy
     :title="fullTimestamp"
     :aria-label="fullTimestamp"
     class="whitespace-nowrap"
-  >{{ format(date, 'd MMM yyyy, h:mm a') }}</time>
+  >{{ formatDate(date, 'd MMM yyyy, h:mm a', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' }) }}</time>
 </template>

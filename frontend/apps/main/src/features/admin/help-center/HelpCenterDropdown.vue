@@ -3,19 +3,19 @@
     <DataTableActionTrigger />
     <DropdownMenuContent>
       <DropdownMenuItem @click="emit('open', props.helpCenter)">
-        <FileText class="mr-2 h-4 w-4" />
+        <FileText class="me-2 h-4 w-4" />
         {{ $t('globals.terms.article', 2) }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="emit('edit', props.helpCenter)">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ $t('globals.messages.edit') }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="visitSite">
-        <ExternalLink class="mr-2 h-4 w-4" />
+        <ExternalLink class="me-2 h-4 w-4" />
         {{ $t('helpCenter.visitSite') }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="emit('toggle', props.helpCenter)">
-        <component :is="props.helpCenter.is_active ? PowerOff : Power" class="mr-2 h-4 w-4" />
+        <component :is="props.helpCenter.is_active ? PowerOff : Power" class="me-2 h-4 w-4" />
         {{ props.helpCenter.is_active ? $t('helpCenter.pause') : $t('helpCenter.resume') }}
       </DropdownMenuItem>
       <DropdownMenuSeparator />
@@ -23,7 +23,7 @@
         @click="() => (alertOpen = true)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ $t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

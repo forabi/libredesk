@@ -7,7 +7,7 @@
             <template #actions>
               <Dialog v-model:open="dialogOpen">
                 <DialogTrigger as-child @click="newStatus">
-                  <Button class="ml-auto">
+                  <Button class="ms-auto">
                     {{ $t('status.new') }}
                   </Button>
                 </DialogTrigger>

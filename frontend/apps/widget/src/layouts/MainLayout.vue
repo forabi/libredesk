@@ -5,7 +5,7 @@
   >
     <div
       v-if="widgetStore.currentView === 'home'"
-      class="absolute right-2 z-20"
+      class="absolute end-2 z-20"
       :class="widgetStore.isMobileFullScreen ? 'top-[max(1rem,env(safe-area-inset-top))]' : 'top-2'"
     >
       <CloseWidgetButton :class="textColorClass" />
@@ -25,8 +25,8 @@
             enter-active-class="transition duration-200 ease-drawer"
             :enter-from-class="
               widgetStore.isChatView
-                ? 'opacity-0 motion-safe:translate-x-3'
-                : 'opacity-0 motion-safe:-translate-x-3'
+                ? 'opacity-0 motion-safe:translate-x-3 rtl:motion-safe:-translate-x-3'
+                : 'opacity-0 motion-safe:-translate-x-3 rtl:motion-safe:translate-x-3'
             "
           >
             <ConversationsView v-if="!widgetStore.isChatView" />

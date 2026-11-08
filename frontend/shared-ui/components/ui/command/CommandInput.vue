@@ -35,9 +35,9 @@ const forwardedProps = useForwardProps(delegatedProps)
       size="xs"
       variant="muted"
       :absolute="false"
-      class="mr-2 h-4 w-4 shrink-0"
+      class="me-2 h-4 w-4 shrink-0"
     />
-    <MagnifyingGlassIcon v-else class="mr-2 h-4 w-4 shrink-0 opacity-50" />
+    <MagnifyingGlassIcon v-else class="me-2 h-4 w-4 shrink-0 opacity-50" />
     <ComboboxInput
       v-bind="{ ...forwardedProps, ...$attrs }"
       auto-focus

@@ -6,13 +6,13 @@
     <button
       v-for="(item, index) in items"
       :key="item.id"
-      class="conversation-reference-item w-full text-left px-3 py-2 hover:bg-muted"
+      class="conversation-reference-item w-full text-start px-3 py-2 hover:bg-muted"
       :class="{ 'bg-muted': index === selectedIndex }"
       @click="selectItem(index)"
     >
       <div class="flex items-center gap-2">
         <span class="font-medium">#{{ item.label }}</span>
-        <span class="text-xs text-muted-foreground">{{ item.status }}</span>
+        <span class="text-xs text-muted-foreground">{{ statusLabel($t, item.status) }}</span>
       </div>
       <div v-if="item.subject" class="text-sm text-muted-foreground truncate">
         {{ item.subject }}
@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 import { ref, watch, nextTick } from 'vue'
 import { MIN_REFERENCE_QUERY_LENGTH } from './conversationReference'
 

@@ -39,7 +39,7 @@
               :class="[
                 getLinkUrl(attribute)
                   ? 'h-6 w-6 shrink-0 text-muted-foreground [&_svg]:size-3 [&_svg]:translate-y-0.5 can-hover:opacity-0 can-hover:group-hover/attribute:opacity-100 can-hover:group-focus-within/attribute:opacity-100 data-[state=open]:opacity-100'
-                  : 'sidebar-value h-auto min-h-6 min-w-6 max-w-full justify-end justify-self-end rounded-sm whitespace-normal px-0 py-0.5 text-right font-normal decoration-muted-foreground/40 decoration-dotted underline-offset-4 can-hover:hover:decoration-foreground',
+                  : 'sidebar-value h-auto min-h-6 min-w-6 max-w-full justify-end justify-self-end rounded-sm whitespace-normal px-0 py-0.5 text-end font-normal decoration-muted-foreground/40 decoration-dotted underline-offset-4 can-hover:hover:decoration-foreground',
                 { 'text-muted-foreground': customAttributes?.[attribute.key] == null }
               ]"
               :aria-label="
@@ -61,7 +61,7 @@
             :href="getLinkUrl(attribute)"
             target="_blank"
             rel="noopener noreferrer"
-            class="sidebar-value h-auto min-h-6 min-w-0 max-w-full whitespace-normal px-0 py-0.5 text-right font-normal text-link"
+            class="sidebar-value h-auto min-h-6 min-w-0 max-w-full whitespace-normal px-0 py-0.5 text-end font-normal text-link"
           >
             <span class="line-clamp-2 min-w-0 [overflow-wrap:anywhere]">{{
               customAttributes[attribute.key]
@@ -120,7 +120,7 @@
               >
                 {{ t('globals.terms.remove') }}
               </Button>
-              <div class="ml-auto flex items-center gap-2">
+              <div class="ms-auto flex items-center gap-2">
                 <Button type="button" variant="outline" size="sm" @click="cancelEditing">
                   {{ t('globals.messages.cancel') }}
                 </Button>

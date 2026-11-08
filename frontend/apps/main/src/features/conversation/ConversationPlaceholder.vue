@@ -12,7 +12,7 @@
             <div class="checklist-item" :class="{ completed: hasInboxes }">
               <CheckCircle v-if="hasInboxes" class="check-icon completed" />
               <Circle v-else class="w-5 h-5 text-muted-foreground" />
-              <span class="flex-1 text-left ml-3 text-foreground">
+              <span class="flex-1 text-start ms-3 text-foreground">
                 {{ $t('setup.createFirstInbox') }}
               </span>
               <Button
@@ -20,7 +20,7 @@
                 variant="ghost"
                 size="sm"
                 @click="router.push({ name: 'inbox-list' })"
-                class="ml-auto"
+                class="ms-auto"
               >
                 {{ $t('globals.messages.setUp') }}
               </Button>
@@ -29,7 +29,7 @@
             <div class="checklist-item" :class="{ completed: hasAgents, disabled: !hasInboxes }">
               <CheckCircle v-if="hasAgents" class="check-icon completed" />
               <Circle v-else class="w-5 h-5 text-muted-foreground" />
-              <span class="flex-1 text-left ml-3 text-foreground">
+              <span class="flex-1 text-start ms-3 text-foreground">
                 {{ $t('setup.inviteTeammates') }}
               </span>
               <Button
@@ -37,7 +37,7 @@
                 variant="ghost"
                 size="sm"
                 @click="router.push({ name: 'agent-list' })"
-                class="ml-auto"
+                class="ms-auto"
               >
                 {{ $t('globals.messages.invite') }}
               </Button>

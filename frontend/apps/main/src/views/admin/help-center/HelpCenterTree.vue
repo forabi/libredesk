@@ -58,11 +58,11 @@
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem @click="editHelpCenter">
-                  <Pencil class="mr-2 h-4 w-4" />
+                  <Pencil class="me-2 h-4 w-4" />
                   {{ t('globals.messages.edit') }}
                 </DropdownMenuItem>
                 <DropdownMenuItem @click="toggleActive">
-                  <component :is="helpCenter?.is_active ? PowerOff : Power" class="mr-2 h-4 w-4" />
+                  <component :is="helpCenter?.is_active ? PowerOff : Power" class="me-2 h-4 w-4" />
                   {{ helpCenter?.is_active ? t('helpCenter.pause') : t('helpCenter.resume') }}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -70,7 +70,7 @@
                   @click="deleteHelpCenter"
                   class="text-destructive focus:text-destructive"
                 >
-                  <Trash class="mr-2 h-4 w-4" />
+                  <Trash class="me-2 h-4 w-4" />
                   {{ t('globals.messages.delete') }}
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -79,7 +79,7 @@
         </div>
 
         <div class="flex-1 min-h-0">
-          <div class="h-full overflow-y-auto pr-1">
+          <div class="h-full overflow-y-auto pe-1">
             <div v-if="treeData.length === 0 && !loading" class="text-center py-16">
               <div
                 class="mx-auto w-24 h-24 bg-muted rounded-full flex items-center justify-center mb-6"
@@ -88,7 +88,7 @@
               </div>
               <p class="text-muted-foreground mb-6">{{ t('helpCenter.noCollections') }}</p>
               <Button @click="openCreateCollectionModal">
-                <Plus class="h-4 w-4 mr-2" />
+                <Plus class="h-4 w-4 me-2" />
                 {{ t('helpCenter.newCollection') }}
               </Button>
             </div>
@@ -178,15 +178,15 @@
           </p>
           <table v-else class="w-full text-sm">
             <thead>
-              <tr class="text-left text-muted-foreground border-b">
+              <tr class="text-start text-muted-foreground border-b">
                 <th class="py-1 font-medium">{{ t('helpCenter.searchTerm') }}</th>
-                <th class="py-1 font-medium text-right">{{ t('helpCenter.searchCount') }}</th>
+                <th class="py-1 font-medium text-end">{{ t('helpCenter.searchCount') }}</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="s in insights.top_searches" :key="s.query" class="border-b last:border-0">
                 <td class="py-1.5">{{ s.query }}</td>
-                <td class="py-1.5 text-right tabular-nums">{{ s.count }}</td>
+                <td class="py-1.5 text-end tabular-nums">{{ s.count }}</td>
               </tr>
             </tbody>
           </table>
@@ -201,9 +201,9 @@
           </p>
           <table v-else class="w-full text-sm">
             <thead>
-              <tr class="text-left text-muted-foreground border-b">
+              <tr class="text-start text-muted-foreground border-b">
                 <th class="py-1 font-medium">{{ t('helpCenter.searchTerm') }}</th>
-                <th class="py-1 font-medium text-right">{{ t('helpCenter.searchCount') }}</th>
+                <th class="py-1 font-medium text-end">{{ t('helpCenter.searchCount') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -213,7 +213,7 @@
                 class="border-b last:border-0"
               >
                 <td class="py-1.5">{{ s.query }}</td>
-                <td class="py-1.5 text-right tabular-nums">{{ s.count }}</td>
+                <td class="py-1.5 text-end tabular-nums">{{ s.count }}</td>
               </tr>
             </tbody>
           </table>

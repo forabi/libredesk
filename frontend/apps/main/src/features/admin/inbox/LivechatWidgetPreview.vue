@@ -46,7 +46,7 @@
                 </div>
               </div>
               <div
-                class="ml-auto flex items-center justify-center size-8 rounded-md text-muted-foreground"
+                class="ms-auto flex items-center justify-center size-8 rounded-md text-muted-foreground"
               >
                 <Maximize2 :size="16" />
               </div>
@@ -73,7 +73,7 @@
                     </label>
                     <div class="flex items-stretch">
                       <div
-                        class="flex items-center gap-2 px-3 rounded-l-md border border-r-0 border-input text-sm text-muted-foreground"
+                        class="flex items-center gap-2 px-3 rounded-s-md border border-e-0 border-input text-sm text-muted-foreground"
                       >
                         <span>{{ $t('globals.terms.select') }}</span>
                         <ChevronDown :size="14" class="opacity-50" />
@@ -82,7 +82,7 @@
                         type="tel"
                         :placeholder="field.placeholder || ''"
                         readonly
-                        class="rounded-l-none"
+                        class="rounded-s-none"
                       />
                     </div>
                   </template>
@@ -142,7 +142,7 @@
                     type="button"
                     variant="outline"
                     size="sm"
-                    class="h-auto max-w-full rounded-full py-1.5 text-left whitespace-normal shadow-md"
+                    class="h-auto max-w-full rounded-full py-1.5 text-start whitespace-normal shadow-md"
                     >{{ reply }}</Button
                   >
                 </div>
@@ -275,7 +275,7 @@
                           :key="article.id"
                           type="button"
                           variant="ghost"
-                          class="w-full h-auto justify-start px-2 py-1.5 text-left whitespace-normal"
+                          class="w-full h-auto justify-start px-2 py-1.5 text-start whitespace-normal"
                           @click="view = 'help'"
                         >
                           {{ article.title }}
@@ -340,10 +340,10 @@
                 </header>
                 <div class="relative p-3 border-b border-border shrink-0">
                   <Search
-                    class="absolute left-6 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                    class="absolute start-6 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
                     aria-hidden="true"
                   />
-                  <Input class="pl-10" :placeholder="$t('widget.searchArticles')" readonly />
+                  <Input class="ps-10" :placeholder="$t('widget.searchArticles')" readonly />
                 </div>
                 <div class="flex-1 min-h-0 overflow-y-auto">
                   <p
@@ -371,7 +371,7 @@
                 <div class="flex-1 overflow-y-auto pb-20">
                   <button
                     type="button"
-                    class="w-full p-4 border-b border-border hover:bg-accent/50 cursor-pointer transition-colors text-left"
+                    class="w-full p-4 border-b border-border hover:bg-accent/50 cursor-pointer transition-colors text-start"
                     @click="openExisting"
                   >
                     <div class="flex items-center gap-3">
@@ -450,7 +450,7 @@
         class="flex items-start border border-border rounded-xl bg-background text-foreground overflow-hidden shadow-lg"
         :class="isDark ? 'dark' : 'light'"
       >
-        <div class="flex items-start gap-2.5 flex-1 min-w-0 p-3 text-left">
+        <div class="flex items-start gap-2.5 flex-1 min-w-0 p-3 text-start">
           <img
             v-if="campaign.avatar"
             :src="campaign.avatar"

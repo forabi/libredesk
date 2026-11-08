@@ -10,6 +10,33 @@
   font-family: inherit;
 }
 
+/*
+ * Icons that point along the reading direction (back/next, expand, send,
+ * reply…) are mirrored for RTL. `scale` composes with any rotate/translate
+ * utility on the same element, so e.g. a chevron rotated to show "open" still
+ * points down.
+ */
+[dir='rtl']
+  :is(
+    .lucide-chevron-left,
+    .lucide-chevron-right,
+    .lucide-chevrons-left,
+    .lucide-chevrons-right,
+    .lucide-external-link,
+    .lucide-square-arrow-out-up-right,
+    .lucide-arrow-up-right,
+    .lucide-arrow-left,
+    .lucide-arrow-right,
+    .lucide-panel-right,
+    .lucide-panel-right-close,
+    .lucide-reply,
+    .lucide-send,
+    .lucide-log-in,
+    .lucide-log-out
+  ) {
+  scale: -1 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   /* Popovers, dialogs and sheets keep their fade but stop sliding and zooming. */
   *,

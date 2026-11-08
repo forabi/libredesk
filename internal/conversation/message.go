@@ -944,32 +944,52 @@ func (m *Manager) getConversationUUIDFromMessageUUID(uuid string) (string, error
 	return conversationUUID, nil
 }
 
-// getMessageActivityContent generates activity content based on the activity type.
+// builtInTermKeys names the seeded conversation statuses and priorities, which
+// cannot be renamed, so activity messages can name them in the app language.
+// Custom statuses keep the name they were given.
+var builtInTermKeys = map[string]string{
+	"Open":     "globals.terms.open",
+	"Snoozed":  "globals.terms.snoozed",
+	"Resolved": "globals.terms.resolved",
+	"Closed":   "globals.terms.closed",
+	"Low":      "globals.terms.low",
+	"Medium":   "globals.terms.medium",
+	"High":     "globals.terms.high",
+}
+
+func (m *Manager) termName(name string) string {
+	if key, ok := builtInTermKeys[name]; ok {
+		return m.i18n.T(key)
+	}
+	return name
+}
+
+// getMessageActivityContent generates activity content, in the app language, based on the activity type.
 func (m *Manager) getMessageActivityContent(activityType, newValue, actorName string) (string, error) {
 	var content = ""
 	switch activityType {
 	case models.ActivityAssignedUserChange:
-		content = fmt.Sprintf("Assigned to %s by %s", newValue, actorName)
+		content = m.i18n.Ts("conversation.activity.assignedToUser", "name", newValue, "actor", actorName)
 	case models.ActivityAssignedTeamChange:
-		content = fmt.Sprintf("Assigned to %s team by %s", newValue, actorName)
+		content = m.i18n.Ts("conversation.activity.assignedToTeam", "name", newValue, "actor", actorName)
 	case models.ActivityAssigneeUserRemoved:
-		content = fmt.Sprintf("%s removed %s as assignee", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.assigneeRemoved", "actor", actorName, "name", newValue)
 	case models.ActivitySelfAssign:
-		content = fmt.Sprintf("%s self-assigned this conversation", actorName)
+		content = m.i18n.Ts("conversation.activity.selfAssigned", "actor", actorName)
 	case models.ActivitySelfUnassign:
-		content = fmt.Sprintf("%s unassigned themselves", actorName)
+		content = m.i18n.Ts("conversation.activity.selfUnassigned", "actor", actorName)
 	case models.ActivityPriorityChange:
-		content = fmt.Sprintf("%s set priority to %s", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.priorityChanged", "actor", actorName, "priority", m.termName(newValue))
 	case models.ActivityStatusChange:
-		content = fmt.Sprintf("%s marked the conversation as %s", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.statusChanged", "actor", actorName, "status", m.termName(newValue))
 	case models.ActivityTagAdded:
-		content = fmt.Sprintf("%s added tag %s", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.tagAdded", "actor", actorName, "tag", newValue)
 	case models.ActivityTagRemoved:
-		content = fmt.Sprintf("%s removed tag %s", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.tagRemoved", "actor", actorName, "tag", newValue)
 	case models.ActivitySLASet:
-		content = fmt.Sprintf("%s set %s SLA policy", actorName, newValue)
+		content = m.i18n.Ts("conversation.activity.slaSet", "actor", actorName, "policy", newValue)
 	case models.ActivityParticipantAdded:
-		content = fmt.Sprintf("%s joined the conversation", newValue)
+		content = m.i18n.Ts("conversation.activity.participantJoined", "name", newValue)
 	case models.ActivityCSATNotSent:
 		content = m.i18n.T("conversation.whatsapp.csatNotSent")
 	default:

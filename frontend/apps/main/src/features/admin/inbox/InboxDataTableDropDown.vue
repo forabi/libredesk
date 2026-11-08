@@ -3,15 +3,15 @@
     <DataTableActionTrigger />
     <DropdownMenuContent>
       <DropdownMenuItem @click="editInbox(props.inbox.id)">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ $t('globals.messages.edit') }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="toggleInbox(props.inbox.id)" v-if="props.inbox.enabled">
-        <PowerOff class="mr-2 h-4 w-4" />
+        <PowerOff class="me-2 h-4 w-4" />
         {{ $t('globals.messages.disable') }}
       </DropdownMenuItem>
       <DropdownMenuItem @click="toggleInbox(props.inbox.id)" v-else>
-        <Power class="mr-2 h-4 w-4" />
+        <Power class="me-2 h-4 w-4" />
         {{ $t('globals.messages.enable') }}
       </DropdownMenuItem>
       <DropdownMenuSeparator />
@@ -19,7 +19,7 @@
         @click="() => (alertOpen = true)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ $t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

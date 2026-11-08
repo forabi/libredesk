@@ -50,7 +50,7 @@
           </div>
 
           <div
-            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-72 lg:shrink-0 lg:border-l lg:border-t-0 lg:overflow-y-auto"
+            class="w-full border-t bg-muted/20 p-4 sm:p-6 lg:w-72 lg:shrink-0 lg:border-s lg:border-t-0 lg:overflow-y-auto"
           >
             <div class="space-y-6">
               <div class="space-y-4">
@@ -208,12 +208,13 @@ import api from '@/api'
 import { handleHTTPError } from '@shared-ui/utils/http.js'
 import { useEmitter } from '@/composables/useEmitter.js'
 import { EMITTER_EVENTS } from '@/constants/emitterEvents.js'
-import { format, isValid } from 'date-fns'
+import { isValid } from 'date-fns'
+import { formatDate as formatLocalDate } from '@shared-ui/utils/datetime.js'
 
 const { t } = useI18n()
 const formatDate = (value) => {
   const date = new Date(value)
-  return isValid(date) ? format(date, 'PPpp') : '-'
+  return isValid(date) ? formatLocalDate(date, 'PPpp', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }) : '-'
 }
 
 const props = defineProps({

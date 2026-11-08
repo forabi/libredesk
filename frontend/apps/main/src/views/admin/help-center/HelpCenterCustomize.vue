@@ -32,7 +32,7 @@
                 <SelectItem value="article">{{ t('helpCenter.styling.articlePage') }}</SelectItem>
               </SelectContent>
             </Select>
-            <PreviewThemeToggle v-model="previewTheme" class="ml-auto" />
+            <PreviewThemeToggle v-model="previewTheme" class="ms-auto" />
             <Select v-model="previewDevice">
               <SelectTrigger class="w-32">
                 <SelectValue />
@@ -81,7 +81,7 @@
                 v-for="preview in previews"
                 :key="preview.id"
                 :ref="(el) => setPreviewFrame(preview.id, el)"
-                class="absolute left-0 top-0 border-0 bg-background block origin-top-left"
+                class="absolute start-0 top-0 border-0 bg-background block origin-top-left rtl:origin-top-right"
                 :class="{ invisible: preview.id !== activePreview?.id }"
                 :style="frameStyle"
                 :srcdoc="preview.html"

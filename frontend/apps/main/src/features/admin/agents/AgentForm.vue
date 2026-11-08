@@ -28,7 +28,7 @@
                 <p class="text-sm font-medium text-foreground">
                   {{
                     props.initialValues.last_active_at
-                      ? format(new Date(props.initialValues.last_active_at), 'PPpp')
+                      ? formatDate(new Date(props.initialValues.last_active_at), 'PPpp', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' })
                       : 'N/A'
                   }}
                 </p>
@@ -41,7 +41,7 @@
                 <p class="text-sm font-medium text-foreground">
                   {{
                     props.initialValues.last_login_at
-                      ? format(new Date(props.initialValues.last_login_at), 'PPpp')
+                      ? formatDate(new Date(props.initialValues.last_login_at), 'PPpp', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' })
                       : 'N/A'
                   }}
                 </p>
@@ -186,7 +186,7 @@
               @click="regenerateAPIKey"
               :disabled="isAPIKeyLoading"
             >
-              <RotateCcw class="w-4 h-4 mr-1" />
+              <RotateCcw class="w-4 h-4 me-1" />
               {{ $t('globals.messages.regenerate') }}
             </Button>
             <Button
@@ -196,7 +196,7 @@
               @click="revokeAPIKey"
               :disabled="isAPIKeyLoading"
             >
-              <Trash2 class="w-4 h-4 mr-1" />
+              <Trash2 class="w-4 h-4 me-1" />
               {{ $t('globals.messages.revoke') }}
             </Button>
           </div>
@@ -205,7 +205,7 @@
         <!-- Last Used Info -->
         <div v-if="apiKeyLastUsedAt" class="text-xs text-muted-foreground">
           {{ $t('globals.messages.lastUsed') }}:
-          {{ format(new Date(apiKeyLastUsedAt), 'PPpp') }}
+          {{ formatDate(new Date(apiKeyLastUsedAt), 'PPpp', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', second: '2-digit' }) }}
         </div>
       </div>
 
@@ -273,7 +273,7 @@
     <FormField name="send_welcome_email" v-slot="{ value, handleChange }" v-if="isNewForm">
       <FormItem>
         <FormControl>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 rtl:space-x-reverse">
             <Checkbox :checked="value" @update:checked="handleChange" />
             <Label>{{ $t('globals.terms.sendWelcomeEmail') }}</Label>
           </div>
@@ -329,7 +329,7 @@ import { Alert, AlertDescription, AlertTitle } from '@shared-ui/components/ui/al
 import { useI18n } from 'vue-i18n'
 import { useEmitter } from '@main/composables/useEmitter.js'
 import { EMITTER_EVENTS } from '@main/constants/emitterEvents.js'
-import { format } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import api from '@main/api/index.js'
 
 const props = defineProps({

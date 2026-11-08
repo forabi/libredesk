@@ -163,7 +163,7 @@ onMounted(async () => {
         type="button"
         variant="ghost"
         size="icon"
-        class="absolute left-2"
+        class="absolute start-2"
         :aria-label="t('globals.messages.goBack')"
         @click="back"
         ><ArrowLeft class="size-4" aria-hidden="true"
@@ -176,14 +176,14 @@ onMounted(async () => {
         type="button"
         variant="ghost"
         size="icon"
-        class="absolute right-2"
+        class="absolute end-2"
         :aria-label="widget.isExpanded ? t('globals.terms.collapse') : t('globals.terms.expand')"
         @click="toggleExpand"
       >
         <Minimize2 v-if="widget.isExpanded" class="size-4" aria-hidden="true" />
         <Maximize2 v-else class="size-4" aria-hidden="true" />
       </Button>
-      <CloseWidgetButton class="absolute right-2 inset-y-0 my-auto" />
+      <CloseWidgetButton class="absolute end-2 inset-y-0 my-auto" />
     </header>
     <div class="relative flex flex-col flex-1 min-h-0">
       <div

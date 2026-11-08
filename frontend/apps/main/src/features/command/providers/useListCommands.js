@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 import { ArrowUpDown, CheckSquare, CircleDot, Filter } from 'lucide-vue-next'
 import { useConversationStore } from '@main/stores/conversation'
 import { useBulkActionPermissions } from '@main/composables/useBulkActionPermissions'
@@ -46,7 +47,7 @@ export function useListCommands() {
           .filter((status) => status.label !== conversationStore.getListStatus)
           .map((status) => ({
             id: `list.status.${status.value}`,
-            label: status.label,
+            label: statusLabel(t, status.label),
             parent: 'list.status',
             icon: CircleDot,
             run: () => conversationStore.setListStatus(status.label)

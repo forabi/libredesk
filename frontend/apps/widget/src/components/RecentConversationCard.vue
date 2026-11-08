@@ -5,7 +5,7 @@
     >
       <button
         type="button"
-        class="block w-full rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        class="block w-full rounded-xl text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         @click="continueConversation"
       >
         <CardContent class="p-4">
@@ -31,7 +31,7 @@
                 <span>{{ getRelativeTime(new Date(conversation.last_message.created_at)) }}</span>
               </div>
             </div>
-            <ArrowRight class="w-4 h-4 text-muted-foreground ml-2 flex-shrink-0 self-center" />
+            <ArrowRight class="w-4 h-4 text-muted-foreground ms-2 flex-shrink-0 self-center" />
           </div>
         </CardContent>
       </button>

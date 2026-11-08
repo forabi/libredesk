@@ -154,7 +154,7 @@
               v-slot="{ componentField, handleChange, meta }"
               :name="field.key"
             >
-              <FormItem class="flex flex-row items-start space-x-3 space-y-0">
+              <FormItem class="flex flex-row items-start space-x-3 rtl:space-x-reverse space-y-0">
                 <FormControl>
                   <Checkbox
                     :checked="componentField.modelValue"
@@ -243,7 +243,7 @@
         >
           <div
             v-if="props.isSubmitting"
-            class="w-4 h-4 border-2 border-background border-t-current rounded-full animate-spin mr-2"
+            class="w-4 h-4 border-2 border-background border-t-current rounded-full animate-spin me-2"
           ></div>
           {{
             props.handoffMode

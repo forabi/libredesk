@@ -9,18 +9,18 @@
 
     <DropdownMenuContent align="end" class="w-48">
       <DropdownMenuItem @click="emit('edit', item)">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ t('globals.messages.edit') }}
       </DropdownMenuItem>
 
       <template v-if="item.type === 'collection'">
         <DropdownMenuSeparator />
         <DropdownMenuItem v-if="canCreateCollection" @click="emit('create-collection', item.id)">
-          <FolderPlus class="mr-2 h-4 w-4" />
+          <FolderPlus class="me-2 h-4 w-4" />
           {{ t('helpCenter.newCollection') }}
         </DropdownMenuItem>
         <DropdownMenuItem @click="emit('create-article', item)">
-          <FilePlus class="mr-2 h-4 w-4" />
+          <FilePlus class="me-2 h-4 w-4" />
           {{ t('helpCenter.newArticle') }}
         </DropdownMenuItem>
       </template>
@@ -29,11 +29,11 @@
         <DropdownMenuSeparator />
 
         <DropdownMenuItem v-if="!isFirst" @click="emit('move', { item, direction: -1 })">
-          <ArrowUp class="mr-2 h-4 w-4" />
+          <ArrowUp class="me-2 h-4 w-4" />
           {{ t('globals.messages.moveUp') }}
         </DropdownMenuItem>
         <DropdownMenuItem v-if="!isLast" @click="emit('move', { item, direction: 1 })">
-          <ArrowDown class="mr-2 h-4 w-4" />
+          <ArrowDown class="me-2 h-4 w-4" />
           {{ t('globals.messages.moveDown') }}
         </DropdownMenuItem>
       </template>
@@ -42,13 +42,13 @@
 
       <DropdownMenuItem @click="emit('toggle-status', item)">
         <template v-if="item.type === 'collection'">
-          <Eye v-if="!item.is_published" class="mr-2 h-4 w-4" />
-          <EyeOff v-else class="mr-2 h-4 w-4" />
+          <Eye v-if="!item.is_published" class="me-2 h-4 w-4" />
+          <EyeOff v-else class="me-2 h-4 w-4" />
           {{ item.is_published ? t('globals.messages.unpublish') : t('globals.messages.publish') }}
         </template>
         <template v-else>
-          <Eye v-if="item.status === 'draft'" class="mr-2 h-4 w-4" />
-          <EyeOff v-else class="mr-2 h-4 w-4" />
+          <Eye v-if="item.status === 'draft'" class="me-2 h-4 w-4" />
+          <EyeOff v-else class="me-2 h-4 w-4" />
           {{
             item.status === 'published'
               ? t('globals.messages.unpublish')
@@ -63,7 +63,7 @@
         @click="emit('delete', item)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

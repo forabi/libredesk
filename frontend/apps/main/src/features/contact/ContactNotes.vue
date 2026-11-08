@@ -37,7 +37,7 @@
               :placeholder="t('editor.hint.newLineSend')"
             />
           </div>
-          <div class="flex justify-end space-x-3 pt-2">
+          <div class="flex justify-end space-x-3 rtl:space-x-reverse pt-2">
             <Button type="button" variant="outline" @click="cancelAddNote">
               {{ $t('globals.messages.cancel') }}
             </Button>
@@ -59,7 +59,7 @@
         <!-- Header -->
         <CardHeader :class="compact ? 'p-3 pb-2' : 'bg-background border-b p-2'">
           <div class="flex items-center justify-between">
-            <div class="flex items-center" :class="compact ? 'space-x-2 min-w-0' : 'space-x-3'">
+            <div class="flex items-center" :class="compact ? 'space-x-2 rtl:space-x-reverse min-w-0' : 'space-x-3 rtl:space-x-reverse'">
               <Avatar :class="compact ? 'h-5 w-5' : 'border shadow-sm'">
                 <AvatarImage :src="note.avatar_url" />
                 <AvatarFallback :class="{ 'text-[10px]': compact }">
@@ -80,7 +80,7 @@
                   {{ note.first_name }} {{ note.last_name }}
                 </p>
                 <p class="text-xs text-muted-foreground flex items-center">
-                  <ClockIcon class="h-3 w-3 mr-1 inline-block opacity-70" />
+                  <ClockIcon class="h-3 w-3 me-1 inline-block opacity-70" />
                   {{ formatDate(note.created_at) }}
                 </p>
               </div>
@@ -97,7 +97,7 @@
                   variant="ghost"
                   size="icon"
                   class="rounded-full"
-                  :class="compact ? 'h-6 w-6 -mr-1' : 'h-8 w-8'"
+                  :class="compact ? 'h-6 w-6 -me-1' : 'h-8 w-8'"
                 >
                   <MoreVerticalIcon :class="compact ? 'h-3.5 w-3.5' : 'h-4 w-4'" />
                   <span class="sr-only">{{ $t('globals.terms.openMenu') }}</span>
@@ -108,7 +108,7 @@
                   @click="promptDeleteNote(note.id)"
                   class="text-destructive cursor-pointer"
                 >
-                  <TrashIcon class="mr-2" size="15" />
+                  <TrashIcon class="me-2" size="15" />
                   {{
                     $t('contact.deleteNote')
                   }}
@@ -184,7 +184,7 @@ const notesCache = new Map()
 
 <script setup>
 import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
-import { format, formatDistanceToNow } from 'date-fns'
+import { formatDate as formatLocalDate, formatTimeAgo } from '@shared-ui/utils/datetime.js'
 import { Button } from '@shared-ui/components/ui/button'
 import { Card, CardHeader, CardContent } from '@shared-ui/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@shared-ui/components/ui/avatar'
@@ -262,8 +262,8 @@ const fetchNotes = async (contactId = props.contactId, { useCache = true } = {})
   }
 }
 
-const formatDate = (date) => format(new Date(date), 'PPP p')
-const relativeDate = (date) => formatDistanceToNow(new Date(date), { addSuffix: true })
+const formatDate = (date) => formatLocalDate(date, 'PPP p', { dateStyle: 'long', timeStyle: 'short' })
+const relativeDate = (date) => formatTimeAgo(date)
 
 const startAddingNote = () => {
   isAddingNote.value = true

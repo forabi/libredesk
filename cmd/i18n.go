@@ -23,7 +23,7 @@ const (
 
 var (
 	localeI18nMu    sync.Mutex
-	localeI18nCache = map[string]*i18n.I18n{}
+	localeI18nCache = map[string]*langPack{}
 
 	// Keyed by resolved language code
 	i18nJSONMu    sync.Mutex
@@ -93,19 +93,21 @@ func handleGetAvailableLanguages(r *fastglue.Request) error {
 
 // localeI18n returns an i18n instance for the given locale code, matching available
 // language packs by exact code or language prefix, falling back to the app's i18n.
-func localeI18n(app *App, locale string) *i18n.I18n {
+func localeI18n(app *App, locale string) *langPack {
 	loc := strings.ToLower(strings.TrimSpace(locale))
 	localeI18nMu.Lock()
 	defer localeI18nMu.Unlock()
-	if i, ok := localeI18nCache[loc]; ok {
-		return i
+	if p, ok := localeI18nCache[loc]; ok {
+		return p
 	}
-	i, err := loadI18nLang(matchLangFile(app.fs, loc), app.fs, app.lo)
+	code := matchLangFile(app.fs, loc)
+	i, err := loadI18nLang(code, app.fs, app.lo)
 	if err != nil || i == nil {
 		i = app.i18n
 	}
-	localeI18nCache[loc] = i
-	return i
+	p := newLangPack(i, code)
+	localeI18nCache[loc] = p
+	return p
 }
 
 // i18nLangJSON returns the marshaled language pack for a language code, cached per resolved code.

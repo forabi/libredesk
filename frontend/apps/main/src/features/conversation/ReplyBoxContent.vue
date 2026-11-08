@@ -218,7 +218,7 @@
 
 <script setup>
 const RECIPIENT_ROW_CLASS = 'col-span-2 grid grid-cols-subgrid items-center gap-x-2'
-const RECIPIENT_LABEL_CLASS = 'whitespace-nowrap text-right text-sm text-muted-foreground'
+const RECIPIENT_LABEL_CLASS = 'whitespace-nowrap text-end text-sm text-muted-foreground'
 const RECIPIENT_INPUT_CLASS =
   'min-w-0 flex-1 border-input bg-card px-2 py-2 text-sm shadow-none focus-visible:ring-1 focus-visible:ring-ring'
 const RECIPIENT_TOGGLE_CLASS = 'shrink-0 px-2 text-muted-foreground'

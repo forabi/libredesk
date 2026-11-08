@@ -39,7 +39,7 @@
         <FormControl>
           <RadioGroup v-bind="componentField">
             <div class="flex flex-col space-y-2">
-              <div class="flex items-start space-x-3">
+              <div class="flex items-start space-x-3 rtl:space-x-reverse">
                 <RadioGroupItem id="hc-template-classic" value="classic" class="mt-1" />
                 <Label for="hc-template-classic" class="font-normal cursor-pointer">
                   <span class="block font-medium">{{ t('helpCenter.templates.classic') }}</span>
@@ -48,7 +48,7 @@
                   }}</span>
                 </Label>
               </div>
-              <div class="flex items-start space-x-3">
+              <div class="flex items-start space-x-3 rtl:space-x-reverse">
                 <RadioGroupItem id="hc-template-docs" value="docs" class="mt-1" />
                 <Label for="hc-template-docs" class="font-normal cursor-pointer">
                   <span class="block font-medium">{{ t('helpCenter.templates.docs') }}</span>
@@ -64,7 +64,7 @@
       </FormItem>
     </FormField>
 
-    <div class="flex justify-end space-x-2 pt-4">
+    <div class="flex justify-end space-x-2 rtl:space-x-reverse pt-4">
       <Button type="button" variant="outline" @click="$emit('cancel')">
         {{ t('globals.messages.cancel') }}
       </Button>

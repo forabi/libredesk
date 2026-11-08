@@ -85,7 +85,7 @@
                         :href="source.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="h-auto px-0 whitespace-normal text-left"
+                        class="h-auto px-0 whitespace-normal text-start"
                       >
                         {{ source.title }}
                       </Button>
@@ -104,7 +104,7 @@
                     >
                       <span class="text-foreground">
                         {{ source.title }}
-                        <span class="ml-2 text-xs text-muted-foreground">
+                        <span class="ms-2 text-xs text-muted-foreground">
                           {{
                             source.type === 'help_article'
                               ? t('globals.terms.article')
@@ -189,6 +189,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@shared-ui/components/
 import { useEmitter } from '@/composables/useEmitter.js'
 import { EMITTER_EVENTS } from '@/constants/emitterEvents.js'
 import { handleHTTPError } from '@shared-ui/utils/http.js'
+import { formatNumber } from '@shared-ui/utils/datetime.js'
 import { useAIAssistantStore } from '@/stores/aiAssistant'
 import { useI18n } from 'vue-i18n'
 
@@ -212,7 +213,7 @@ const previewSources = ref([])
 const previewLoading = ref(false)
 const previewReferences = computed(() => previewSources.value.filter((source) => source.url))
 
-const fmtNumber = (value) => Number(value ?? 0).toLocaleString()
+const fmtNumber = (value) => formatNumber(value)
 const fmtPercent = (value) => `${Number(value ?? 0).toFixed(1)}%`
 const fmtDecimal = (value) => Number(value ?? 0).toFixed(1)
 

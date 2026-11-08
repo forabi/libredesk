@@ -75,9 +75,9 @@ body.hcd::after {
 .hc-skip-link:focus-visible {
     width: auto; height: auto; overflow: visible;
     clip-path: none;
-    top: 0; left: 0; z-index: 100;
+    top: 0; inset-inline-start: 0; z-index: 100;
     padding: .6rem 1rem; background: var(--hc-bg); color: var(--hc-accent-ink);
-    border: 1px solid var(--hc-border); border-radius: 0 0 var(--hc-radius-sm) 0; font-weight: 600;
+    border: 1px solid var(--hc-border); border-radius: 0; border-end-end-radius: var(--hc-radius-sm); font-weight: 600;
 }
 
 /* ---- Announcement ---- */
@@ -148,7 +148,7 @@ body.hcd::after {
     display: inline-flex; align-items: center; gap: .55rem;
     width: min(24rem, 34vw);
     justify-self: center;
-    padding: .42rem .5rem .42rem .7rem;
+    padding-block: .42rem .42rem; padding-inline: .7rem .5rem;
     font-size: .88rem; color: var(--hc-faint);
     background: var(--hc-bg); border: 1px solid var(--hc-border); border-radius: var(--hc-radius-sm);
     cursor: pointer; transition: border-color .15s, box-shadow .15s, scale .12s cubic-bezier(0.23, 1, 0.32, 1);
@@ -156,7 +156,7 @@ body.hcd::after {
 .hcd-search-btn:hover { text-decoration: none; border-color: var(--hc-accent-line); box-shadow: var(--hc-shadow); }
 .hcd-search-btn svg { width: .95rem; height: .95rem; flex: none; }
 .hcd-search-btn-label { flex: 1; text-align: start; }
-.hcd-kbd-combo { display: inline-flex; gap: .2rem; }
+.hcd-kbd-combo { display: inline-flex; gap: .2rem; direction: ltr; }
 .hcd-kbd {
     display: inline-flex; align-items: center; justify-content: center;
     min-width: 1.3rem; padding: .05rem .3rem;
@@ -176,14 +176,14 @@ body.hcd::after {
 }
 .hcd-search-panel .hc-search { position: relative; }
 .hcd-search-panel .hc-search-icon {
-    position: absolute; left: 1rem; top: 1.45rem; transform: translateY(-50%);
+    position: absolute; inset-inline-start: 1rem; top: 1.45rem; transform: translateY(-50%);
     width: 1.05rem; height: 1.05rem; color: var(--hc-faint); pointer-events: none;
 }
 .hcd-search-panel .hc-search input {
     appearance: none;
     -webkit-appearance: none;
     width: 100%;
-    padding: .85rem 1rem .85rem 2.7rem;
+    padding-block: .85rem .85rem; padding-inline: 2.7rem 1rem;
     font-size: 1rem; font-family: inherit;
     color: var(--hc-ink);
     background: none; border: 0; border-bottom: 1px solid var(--hc-border);
@@ -226,7 +226,7 @@ body.hcd::after {
     position: sticky; top: var(--hcd-topbar-h);
     height: calc(100dvh - var(--hcd-topbar-h));
     overflow-y: auto;
-    padding: 2rem 1.4rem 2.5rem 1.6rem;
+    padding-block: 2rem 2.5rem; padding-inline: 1.6rem 1.4rem;
     scrollbar-width: thin;
     scrollbar-color: var(--hc-border) transparent;
 }
@@ -312,7 +312,7 @@ main#hc-main > * { max-width: var(--hcd-content-w); }
 .hcd-hero-search {
     display: flex; align-items: center; gap: .7rem;
     max-width: 30rem;
-    padding: .8rem .8rem .8rem 1rem;
+    padding-block: .8rem .8rem; padding-inline: 1rem .8rem;
     font-size: .97rem; color: var(--hc-faint);
     background: var(--hc-bg); border: 1px solid var(--hc-border); border-radius: var(--hc-radius);
     box-shadow: var(--hc-shadow);
@@ -498,8 +498,8 @@ main#hc-main > .hcd-collections-section { max-width: calc(var(--hcd-content-w) +
 .hcd-notfound p { color: var(--hc-muted); margin: 0 0 1.5rem; }
 .hcd-notfound-search {
     display: flex; align-items: center; gap: .7rem;
-    margin: 0 auto 1.5rem; max-width: 26rem; text-align: left;
-    padding: .8rem .8rem .8rem 1rem;
+    margin: 0 auto 1.5rem; max-width: 26rem; text-align: start;
+    padding-block: .8rem .8rem; padding-inline: 1rem .8rem;
     font-size: .97rem; color: var(--hc-faint);
     background: var(--hc-bg); border: 1px solid var(--hc-border); border-radius: var(--hc-radius);
     box-shadow: var(--hc-shadow);
@@ -520,7 +520,7 @@ main#hc-main > .hcd-collections-section { max-width: calc(var(--hcd-content-w) +
 .hc-lang { position: relative; }
 .hc-lang-btn {
     display: inline-flex; align-items: center; gap: .4rem;
-    padding: .4rem .55rem .4rem .6rem; margin: 0;
+    padding-block: .4rem .4rem; padding-inline: .6rem .55rem; margin: 0;
     font-family: inherit; font-size: .8rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: .03em; color: var(--hc-muted);
     background: var(--hc-bg); border: 1px solid var(--hc-border); border-radius: var(--hc-radius-sm);
@@ -532,13 +532,14 @@ main#hc-main > .hcd-collections-section { max-width: calc(var(--hcd-content-w) +
 .hc-lang-caret { width: .8rem; height: .8rem; color: var(--hc-faint); flex: none; transition: transform .15s; }
 .hc-lang[data-open] .hc-lang-caret { transform: rotate(180deg); }
 .hc-lang-menu {
-    position: absolute; top: calc(100% + .4rem); right: 0; z-index: 50;
+    position: absolute; top: calc(100% + .4rem); inset-inline-end: 0; z-index: 50;
     min-width: 8rem; padding: .3rem; display: none; transform-origin: top right;
     margin: 0; list-style: none;
     background: var(--hc-bg); border: 1px solid var(--hc-border);
     border-radius: var(--hc-radius); box-shadow: var(--hc-shadow-lift);
 }
 .hc-lang[data-open] .hc-lang-menu { display: block; }
+[dir="rtl"] .hc-lang-menu { transform-origin: top left; }
 .hc-lang-menu a {
     display: block; padding: .45rem .6rem; border-radius: var(--hc-radius-sm);
     font-size: .85rem; font-weight: 500; text-transform: uppercase; letter-spacing: .03em;
@@ -605,7 +606,12 @@ main#hc-main > .hcd-collections-section { max-width: calc(var(--hcd-content-w) +
     .hc-announcement { padding-block: 0; }
     .hc-announcement p { min-width: 0; padding-block: .55rem; overflow-wrap: anywhere; }
     .hc-announcement button { flex-shrink: 0; justify-content: center; }
-    .hcd-topbar-inner { padding: 0 1rem; gap: .8rem; }
+    /* One row: the brand takes the free space, the search button and any
+       language/theme buttons sit at the end. The desktop grid's two 1fr
+       columns would otherwise squeeze the brand next to an empty column. */
+    .hcd-topbar-inner { display: flex; padding: 0 1rem; gap: .8rem; }
+    .hcd-topbar-start { flex: 1; }
+    .hcd-topbar-end:not(:has(.hc-nav-actions > *)) { display: none; }
     .hcd-search-btn { width: auto; min-width: 44px; min-height: 44px; justify-content: center; justify-self: end; padding: .45rem; border: 1px solid var(--hc-border); }
     .hcd-search-btn-label, .hcd-search-btn .hcd-kbd-combo { display: none; }
     .hcd-search-btn svg { width: 1.1rem; height: 1.1rem; }

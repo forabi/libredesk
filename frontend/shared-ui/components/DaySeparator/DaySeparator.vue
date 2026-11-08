@@ -9,7 +9,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { isToday, isYesterday, format } from 'date-fns'
+import { isToday, isYesterday } from 'date-fns'
+import { formatDate } from '../../utils/datetime.js'
 
 const props = defineProps({
   date: {
@@ -24,6 +25,6 @@ const label = computed(() => {
   const date = new Date(props.date)
   if (isToday(date)) return t('globals.terms.today')
   if (isYesterday(date)) return t('globals.terms.yesterday')
-  return format(date, 'd MMM yyyy')
+  return formatDate(date, 'd MMM yyyy', { day: 'numeric', month: 'short', year: 'numeric' })
 })
 </script>

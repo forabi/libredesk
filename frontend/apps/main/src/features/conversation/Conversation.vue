@@ -6,7 +6,7 @@
         <Button
           v-if="isMobile"
           variant="ghost"
-          class="w-11 h-11 lg:w-8 lg:h-8 p-0 shrink-0 -ml-2 lg:-ml-1"
+          class="w-11 h-11 lg:w-8 lg:h-8 p-0 shrink-0 -ms-2 lg:-ms-1"
           :aria-label="t('globals.messages.back')"
           @click="goBackToList"
         >
@@ -48,7 +48,7 @@
               <span
                 class="rounded-md bg-primary px-2.5 py-1 text-xs lg:text-sm font-medium text-primary-foreground"
               >
-                {{ conversationStore.current?.status }}
+                {{ statusLabel($t, conversationStore.current?.status) }}
               </span>
             </div>
           </DropdownMenuTrigger>
@@ -58,7 +58,7 @@
               :key="status.value"
               @click="handleUpdateStatus(status.label)"
             >
-              {{ status.label }}
+              {{ statusLabel($t, status.label) }}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -108,6 +108,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 const MOBILE_ICON_BUTTON_CLASS = 'w-11 h-11 lg:w-8 lg:h-8 p-0'
 
 import { computed, ref, onMounted, onUnmounted } from 'vue'

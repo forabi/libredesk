@@ -48,8 +48,8 @@
                     class="cursor-pointer"
                     @click="showBlockConfirmation = true"
                   >
-                    <ShieldOffIcon v-if="contact.enabled" class="mr-2" size="15" />
-                    <ShieldCheckIcon v-else class="mr-2" size="15" />
+                    <ShieldOffIcon v-if="contact.enabled" class="me-2" size="15" />
+                    <ShieldCheckIcon v-else class="me-2" size="15" />
                     {{ t(contact.enabled ? 'globals.messages.block' : 'globals.messages.unblock') }}
                   </DropdownMenuItem>
                   <DropdownMenuItem
@@ -57,7 +57,7 @@
                     class="cursor-pointer"
                     @click="exportContact"
                   >
-                    <DownloadIcon class="mr-2" size="15" />
+                    <DownloadIcon class="me-2" size="15" />
                     {{ t('globals.messages.exportData') }}
                   </DropdownMenuItem>
                   <template v-if="userStore.can('contacts:delete')">
@@ -66,7 +66,7 @@
                       class="text-destructive cursor-pointer"
                       @click="showDeleteConfirmation = true"
                     >
-                      <Trash2Icon class="mr-2" size="15" />
+                      <Trash2Icon class="me-2" size="15" />
                       {{ t('contact.deleteContact') }}
                     </DropdownMenuItem>
                   </template>
@@ -98,7 +98,7 @@
             <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
               <CalendarIcon size="14" class="flex-shrink-0" />
               {{ $t('globals.terms.createdOn') }}
-              {{ contact.created_at ? format(new Date(contact.created_at), 'PPP') : 'N/A' }}
+              {{ contact.created_at ? formatDate(contact.created_at, 'PPP', { dateStyle: 'long' }) : 'N/A' }}
             </div>
           </div>
 
@@ -157,7 +157,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { format } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import { useI18n } from 'vue-i18n'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'

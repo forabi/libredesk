@@ -188,6 +188,7 @@
 </template>
 
 <script setup>
+import { withPriorityLabels } from '@shared-ui/utils/defaultTerms.js'
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { Sparkles, Loader2, Plus, Pencil, GripVertical } from 'lucide-vue-next'
 import { Button } from '@shared-ui/components/ui/button'
@@ -374,7 +375,9 @@ const applySuggestedTag = (tag) => {
   tagSuggestions.value = tagSuggestions.value.filter((suggestion) => suggestion !== tag)
 }
 
-const priorityOptions = computed(() => conversationStore.priorityOptions)
+const priorityOptions = computed(() =>
+  withPriorityLabels(t, conversationStore.priorityOptions)
+)
 
 const handleAssignedUserChange = (id) => {
   conversationStore.updateAssignee('user', {
@@ -414,9 +417,9 @@ const selectTeam = (team) => {
 }
 
 const selectPriority = (priority) => {
-  conversationStore.current.priority = priority.label
+  conversationStore.current.priority = priority.name
   conversationStore.current.priority_id = priority.value
-  handlePriorityChange(priority.label)
+  handlePriorityChange(priority.name)
 }
 
 const updateContactCustomAttributes = async (attributes) => {

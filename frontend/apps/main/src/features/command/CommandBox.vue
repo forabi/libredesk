@@ -6,10 +6,10 @@
     :filter-function="filterFunction"
     @update:open="onOpenChange"
     :class="[
-      'z-[51] !top-[44%] !w-[calc(100%-1.5rem)] !min-w-0 gap-0 rounded-lg border-border/80 bg-popover shadow-lg [&>button]:right-3 [&>button]:top-3 [&>button]:rounded-md [&>button]:bg-muted/70 [&>button]:opacity-60 [&>button]:hover:opacity-100',
+      'z-[51] !top-[44%] !w-[calc(100%-1.5rem)] !min-w-0 gap-0 rounded-lg border-border/80 bg-popover shadow-lg [&>button]:end-3 [&>button]:top-3 [&>button]:rounded-md [&>button]:bg-muted/70 [&>button]:opacity-60 [&>button]:hover:opacity-100',
       isMacroMode ? '!max-w-5xl' : '!max-w-2xl'
     ]"
-    command-class="rounded-lg bg-popover [&_[cmdk-input-wrapper]]:h-14 [&_[cmdk-input-wrapper]]:border-border/70 [&_[cmdk-input-wrapper]]:px-4 [&_[cmdk-input-wrapper]_svg]:text-muted-foreground [&_[cmdk-input]]:h-14 [&_[cmdk-input]]:pr-10 [&_[cmdk-input]]:text-base [&_[cmdk-group]]:py-2 [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:pb-2 [&_[cmdk-group-heading]]:pt-1 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-item]]:mx-0.5 [&_[cmdk-item]]:rounded-md [&_[cmdk-item]]:px-3 [&_[cmdk-item]]:py-2 [&_[cmdk-item]]:transition-colors [&_[cmdk-item]]:duration-150"
+    command-class="rounded-lg bg-popover [&_[cmdk-input-wrapper]]:h-14 [&_[cmdk-input-wrapper]]:border-border/70 [&_[cmdk-input-wrapper]]:px-4 [&_[cmdk-input-wrapper]_svg]:text-muted-foreground [&_[cmdk-input]]:h-14 [&_[cmdk-input]]:pe-10 [&_[cmdk-input]]:text-base [&_[cmdk-group]]:py-2 [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:pb-2 [&_[cmdk-group-heading]]:pt-1 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-item]]:mx-0.5 [&_[cmdk-item]]:rounded-md [&_[cmdk-item]]:px-3 [&_[cmdk-item]]:py-2 [&_[cmdk-item]]:transition-colors [&_[cmdk-item]]:duration-150"
   >
     <div
       v-if="breadcrumb"
@@ -71,12 +71,12 @@
             <span v-if="command.hint" class="min-w-0 truncate text-xs text-muted-foreground">
               {{ command.hint }}
             </span>
-            <span class="ml-auto flex shrink-0 items-center gap-1 pl-3">
-              <template v-if="command.shortcut">
+            <span class="ms-auto flex shrink-0 items-center gap-1 ps-3">
+              <span v-if="command.shortcut" class="flex items-center gap-1" dir="ltr">
                 <kbd v-for="key in command.shortcut" :key="key" :class="KBD_CLASS">
                   {{ KEY_LABELS[key] || key }}
                 </kbd>
-              </template>
+              </span>
               <ChevronRight
                 v-if="command.group || command.navigateTo"
                 class="!h-4 !w-4 text-muted-foreground"

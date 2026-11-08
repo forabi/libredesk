@@ -7,7 +7,11 @@
     @touchstart.once="initAudioContext"
   >
     <div class="widget-container">
-      <MainLayout />
+      <RekaConfigProvider :dir="dir" :locale="toIntlLocale(locale)">
+        <RadixConfigProvider :dir="dir">
+          <MainLayout />
+        </RadixConfigProvider>
+      </RekaConfigProvider>
     </div>
   </div>
 </template>
@@ -28,13 +32,18 @@ import { useI18n } from 'vue-i18n'
 import { useProactiveStore } from '@widget/store/proactive.js'
 import { useReplyPreviews } from '@widget/composables/useReplyPreviews.js'
 import { resolveLanguage } from '@widget/utils/language.js'
+import { applyDocumentLocale, localeDir } from '@shared-ui/utils/direction.js'
+import { setAppLocale, toIntlLocale } from '@shared-ui/utils/datetime.js'
+import { addPluralRule } from '@shared-ui/utils/plural.js'
+import { ConfigProvider as RekaConfigProvider } from 'reka-ui'
+import { ConfigProvider as RadixConfigProvider } from 'radix-vue'
 
 const widgetStore = useWidgetStore()
 const chatStore = useChatStore()
 const userStore = useUserStore()
 const help = useHelpStore()
 const proactive = useProactiveStore()
-const { locale, setLocaleMessage } = useI18n()
+const { locale, setLocaleMessage, pluralRules } = useI18n()
 useReplyPreviews()
 
 // Register stores for the global 401 response interceptor.
@@ -62,6 +71,11 @@ const customColorStyle = computed(() => {
 })
 
 // Dropdowns and dialogs portal to document.body, outside the app wrapper.
+watch(locale, (l) => {
+  applyDocumentLocale(l)
+  setAppLocale(l)
+})
+const dir = computed(() => localeDir(locale.value))
 watch(
   () => widgetStore.isDark,
   (dark) => document.documentElement.classList.toggle('dark', dark),
@@ -115,6 +129,7 @@ const setLanguage = async (requested) => {
       const messages = await api.getLanguage(language.locale)
       if (request !== languageRequest) return
       setLocaleMessage(language.locale, messages.data)
+      addPluralRule(pluralRules, language.locale)
       locale.value = language.locale
     }
     help.requestedLocale = language.requestedLocale

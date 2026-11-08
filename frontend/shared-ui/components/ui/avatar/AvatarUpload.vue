@@ -21,7 +21,7 @@
       v-if="src"
       type="button"
       :disabled="disabled"
-      class="absolute top-1 right-1 rounded-full p-0.5 bg-destructive text-destructive-foreground shadow-md z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-not-allowed"
+      class="absolute top-1 end-1 rounded-full p-0.5 bg-destructive text-destructive-foreground shadow-md z-10 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-not-allowed"
       aria-label="Remove avatar"
       @click.stop="emit('remove')"
     >

@@ -22,7 +22,7 @@ const forwardedProps = useForwardProps(delegatedProps)
 <template>
   <TagsInputItemDelete
     v-bind="forwardedProps"
-    :class="cn('flex rounded bg-transparent mr-1', props.class)"
+    :class="cn('flex rounded bg-transparent me-1', props.class)"
   >
     <slot>
       <Cross2Icon class="w-4 h-4" />

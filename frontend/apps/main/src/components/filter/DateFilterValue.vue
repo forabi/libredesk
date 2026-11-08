@@ -7,12 +7,12 @@
           variant="outline"
           :class="
             cn(
-              'w-full justify-start text-left font-normal',
+              'w-full justify-start text-start font-normal',
               !rangeLabel && 'text-muted-foreground'
             )
           "
         >
-          <CalendarIcon class="mr-2 h-4 w-4" aria-hidden="true" />
+          <CalendarIcon class="me-2 h-4 w-4" aria-hidden="true" />
           {{ rangeLabel || placeholder || t('globals.terms.pickDate') }}
         </Button>
       </PopoverTrigger>
@@ -31,12 +31,12 @@
           variant="outline"
           :class="
             cn(
-              'w-full justify-start text-left font-normal',
+              'w-full justify-start text-start font-normal',
               !modelValue && 'text-muted-foreground'
             )
           "
         >
-          <CalendarIcon class="mr-2 h-4 w-4" aria-hidden="true" />
+          <CalendarIcon class="me-2 h-4 w-4" aria-hidden="true" />
           {{ modelValue ? formatDisplay(modelValue) : placeholder || t('globals.terms.pickDate') }}
         </Button>
       </PopoverTrigger>
@@ -54,7 +54,7 @@
 import { ref, computed } from 'vue'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { parseDate } from '@internationalized/date'
-import { format } from 'date-fns'
+import { formatDate } from '@shared-ui/utils/datetime.js'
 import { useI18n } from 'vue-i18n'
 import { cn } from '@shared-ui/lib/utils.js'
 import { Button } from '@shared-ui/components/ui/button'
@@ -86,7 +86,7 @@ const dateValue = computed(() => toCalendarDate(modelValue.value))
 
 const formatDisplay = (v) => {
   try {
-    return format(new Date(v), 'MMM dd, yyyy')
+    return formatDate(new Date(v), 'MMM dd, yyyy', { day: 'numeric', month: 'short', year: 'numeric' })
   } catch {
     return v
   }

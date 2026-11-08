@@ -11,9 +11,9 @@
             <Button
               ref="dateButtonRef"
               variant="outline"
-              class="w-full justify-start text-left font-normal"
+              class="w-full justify-start text-start font-normal"
             >
-              <CalendarIcon class="mr-2 h-4 w-4" />
+              <CalendarIcon class="me-2 h-4 w-4" />
               {{ selectedDate ? selectedDate : t('globals.terms.pickDate') }}
             </Button>
           </PopoverTrigger>

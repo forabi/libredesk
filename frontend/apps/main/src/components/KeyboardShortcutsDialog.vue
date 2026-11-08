@@ -16,7 +16,7 @@
               class="flex items-center justify-between text-sm"
             >
               <span>{{ item.label }}</span>
-              <span class="flex items-center gap-1">
+              <span class="flex items-center gap-1" dir="ltr">
                 <kbd
                   v-for="key in item.keys"
                   :key="key"

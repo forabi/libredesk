@@ -6,7 +6,7 @@
     <div v-else class="size-8 invisible"></div>
     <DropdownMenuContent>
       <DropdownMenuItem @click="editStatus">
-        <Pencil class="mr-2 h-4 w-4" />
+        <Pencil class="me-2 h-4 w-4" />
         {{ $t('globals.messages.edit') }}
       </DropdownMenuItem>
       <DropdownMenuSeparator />
@@ -14,7 +14,7 @@
         @click="() => (alertOpen = true)"
         class="text-destructive focus:text-destructive"
       >
-        <Trash class="mr-2 h-4 w-4" />
+        <Trash class="me-2 h-4 w-4" />
         {{ $t('globals.messages.delete') }}
       </DropdownMenuItem>
     </DropdownMenuContent>

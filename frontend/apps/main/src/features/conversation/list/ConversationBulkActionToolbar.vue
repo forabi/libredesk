@@ -8,10 +8,10 @@
       :checked="conversationStore.allSelected"
       @update:checked="toggleSelectAll"
       :aria-label="t('conversation.bulkActions.selectAll')"
-      class="ml-1 mr-1"
+      class="ms-1 me-1"
     />
     <span
-      class="text-xs font-medium whitespace-nowrap tabular-nums inline-block min-w-20 mr-1"
+      class="text-xs font-medium whitespace-nowrap tabular-nums inline-block min-w-20 me-1"
       aria-live="polite"
     >
       {{ t('conversation.bulkActions.selected', conversationStore.selectedCount, { count: conversationStore.selectedCount }) }}
@@ -95,17 +95,17 @@
           :key="status.value"
           @click="bulkUpdateStatus(status.label)"
         >
-          {{ status.label }}
+          {{ statusLabel($t, status.label) }}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 
-    <Loader2 v-if="bulkLoading" class="w-4 h-4 animate-spin text-muted-foreground ml-2" />
+    <Loader2 v-if="bulkLoading" class="w-4 h-4 animate-spin text-muted-foreground ms-2" />
 
     <Button
       variant="ghost"
       size="icon"
-      class="ml-auto"
+      class="ms-auto"
       :aria-label="t('conversation.bulkActions.clearSelection')"
       @click="conversationStore.clearSelection()"
     >
@@ -115,6 +115,7 @@
 </template>
 
 <script setup>
+import { statusLabel } from '@shared-ui/utils/defaultTerms.js'
 import { useI18n } from 'vue-i18n'
 import { UserPlus, Users, Tag, CircleDot, Loader2, X } from 'lucide-vue-next'
 import { Button } from '@shared-ui/components/ui/button'

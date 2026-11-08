@@ -18,7 +18,7 @@
                 <TooltipTrigger as-child>
                   <NotificationBell />
                 </TooltipTrigger>
-                <TooltipContent side="right">
+                <TooltipContent :side="endSide">
                   <p>{{ t('globals.terms.notification', 2) }}</p>
                 </TooltipContent>
               </Tooltip>
@@ -131,13 +131,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@shared-ui/components/u
 import SidebarNavUser from '@main/components/sidebar/SidebarNavUser.vue'
 import NotificationBell from '@main/components/sidebar/NotificationBell.vue'
 import PrimaryNavItems from '@main/components/sidebar/PrimaryNavItems.vue'
-import { useIsMobile } from '@shared-ui/composables'
+import { useIsMobile, useEndSide } from '@shared-ui/composables'
 import api from '@main/api'
 import { usePushNotifications } from '@/composables/usePushNotifications'
 
 const route = useRoute()
 const emitter = useEmitter()
 const isMobile = useIsMobile()
+const endSide = useEndSide()
 
 // Remember last inbox path so navigating back from admin/contacts/reports restores it
 const lastInboxPath = useStorage('lastInboxPath', '')

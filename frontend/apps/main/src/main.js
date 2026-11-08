@@ -8,6 +8,9 @@ import api from './api'
 import '@shared-ui/assets/styles/main.scss'
 import '@shared-ui/utils/string.js'
 import Root from './Root.vue'
+import { applyDocumentLocale } from '@shared-ui/utils/direction.js'
+import { setAppLocale } from '@shared-ui/utils/datetime.js'
+import { addPluralRule } from '@shared-ui/utils/plural.js'
 
 const setFavicon = (url) => {
   let link = document.createElement("link")
@@ -21,6 +24,8 @@ async function initApp () {
   const emitter = mitt()
   const lang = config['app.lang'] || 'en-US'
   const langMessages = await api.getLanguage(lang)
+  applyDocumentLocale(lang)
+  setAppLocale(lang)
 
   // Set favicon.
   if (config['app.favicon_url'])
@@ -31,6 +36,7 @@ async function initApp () {
     legacy: false,
     locale: lang,
     fallbackLocale: 'en-US',
+    pluralRules: addPluralRule({}, lang),
     messages: {
       [lang]: langMessages.data
     }

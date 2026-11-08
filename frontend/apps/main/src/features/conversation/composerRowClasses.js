@@ -5,6 +5,6 @@ export const ROW_INPUT_CLASS =
 export const ROW_COMBOBOX_CLASS =
   'h-9 flex-1 min-w-0 border-0 bg-transparent px-2 font-normal shadow-none hover:bg-transparent'
 export const ROW_COMBOBOX_EMPTY_CLASS = `${ROW_COMBOBOX_CLASS} text-muted-foreground/60`
-export const ROW_MESSAGE_CLASS = 'pb-2 pl-14'
+export const ROW_MESSAGE_CLASS = 'pb-2 ps-14'
 
 export const isUnset = (value) => !value || value === 'none'

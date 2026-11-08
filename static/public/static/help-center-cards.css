@@ -34,7 +34,7 @@ a.hc-collection-card:hover { text-decoration: none; }
     line-clamp: 3;
     overflow: hidden;
 }
-.hc-collection-card .hc-count { position: absolute; top: 1.25rem; right: 1.25rem; margin: 0; }
+.hc-collection-card .hc-count { position: absolute; top: 1.25rem; inset-inline-end: 1.25rem; margin: 0; }
 .hc-count { display: inline-block; margin-top: .5rem; font-size: .78rem; font-weight: 600; color: var(--hc-faint); }
 .hc-card-meta {
     margin-top: auto; padding-top: .8rem; display: flex; align-items: center; gap: .55rem;
@@ -76,7 +76,7 @@ a.hc-collection-card.hc-icon-center .hc-count { position: static; margin-top: .5
 }
 .hc-collection-icon.hc-icon-tile svg { width: 1.35rem; height: 1.35rem; }
 
-.hc-collections.hc-layout-list a.hc-collection-card { flex-direction: row; gap: 1.1rem; align-items: flex-start; text-align: left; }
+.hc-collections.hc-layout-list a.hc-collection-card { flex-direction: row; gap: 1.1rem; align-items: flex-start; text-align: start; }
 .hc-collections.hc-layout-list .hc-card-head { display: contents; }
 .hc-layout-list .hc-collection-icon { margin-bottom: 0; }
 .hc-collections.hc-layout-list .hc-collection-body { flex: 1; min-width: 0; align-items: flex-start; }
@@ -89,7 +89,7 @@ a.hc-collection-card.hc-icon-center .hc-count { position: static; margin-top: .5
     width: 1.75rem; height: 1.75rem; border-radius: 50%;
     border: 2px solid var(--hc-bg); object-fit: cover; display: block;
 }
-.hc-avatars > * + * { margin-left: -.5rem; }
+.hc-avatars > * + * { margin-inline-start: -.5rem; }
 .hc-avatar-initial {
     display: flex; align-items: center; justify-content: center;
     background: var(--hc-accent-ink); color: var(--hc-bg);

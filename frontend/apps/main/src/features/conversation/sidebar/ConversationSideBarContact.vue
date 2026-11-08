@@ -12,7 +12,7 @@
           v-if="isLivechat"
           :status="contactStatus"
           size="lg"
-          class="absolute -bottom-[3px] -right-[3px]"
+          class="absolute -bottom-[3px] -end-[3px]"
         />
       </div>
       <div class="flex items-center gap-1">

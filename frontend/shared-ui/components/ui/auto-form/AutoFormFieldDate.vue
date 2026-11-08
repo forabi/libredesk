@@ -1,5 +1,6 @@
 <script setup>
 import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
+import { intlLocale } from '../../../utils/datetime.js'
 import { CalendarIcon } from '@radix-icons/vue'
 import { beautifyObjectName } from './utils'
 import AutoFormLabel from './AutoFormLabel.vue'
@@ -24,7 +25,7 @@ defineProps({
   disabled: { type: Boolean, required: false }
 })
 
-const df = new DateFormatter('en-US', {
+const df = new DateFormatter(intlLocale(), {
   dateStyle: 'long'
 })
 </script>
@@ -44,12 +45,12 @@ const df = new DateFormatter('en-US', {
                   variant="outline"
                   :class="
                     cn(
-                      'w-full justify-start text-left font-normal',
+                      'w-full justify-start text-start font-normal',
                       !slotProps.componentField.modelValue && 'text-muted-foreground'
                     )
                   "
                 >
-                  <CalendarIcon class="mr-2 h-4 w-4" />
+                  <CalendarIcon class="me-2 h-4 w-4" />
                   {{
                     slotProps.componentField.modelValue
                       ? df.format(slotProps.componentField.modelValue.toDate(getLocalTimeZone()))
